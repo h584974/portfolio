@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100vw;
+    height: var(--header-height);
+    background-color: red;
+    font-size: calc(var(--header-height) / 2.2);
+}
+
+.container a:hover {
+    cursor: pointer;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50vw;
+    height: 100%;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.right {
+    justify-content: end;
+}
+
+:is(.left, .right) a {
+    margin-inline: 10vw;
+}

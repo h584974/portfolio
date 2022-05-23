@@ -1,3 +1,20 @@
+:root {
+  --bg-l: rgb(245, 245, 255);
+  --bg-l-inv: rgb(30, 30, 45);
+  --color-l: rgb(10, 10, 20);
+  --color-l-inv: rgb(150, 190, 225);
+  
+  --bg-d: rgb(10, 20, 30);
+  --bg-d-inv: rgb(0, 240, 240);
+  --color-d: rgb(255, 220, 0);
+  --color-d-inv: rgb(10, 20, 30);
+
+  --header-height: 4vh;
+  --corner-rad: 0.2rem;
+
+  --transission: .2s;
+}
+
 html,
 body {
   padding: 0;
@@ -13,4 +30,32 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
+main {
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.light {
+  background-color: var(--bg-l);
+  color: var(--color-l);
+}
+
+  .light .inverted {
+    background-color: var(--bg-l-inv);
+    color: var(--color-l-inv);  
+  }
+
+.dark {
+  background-color: var(--bg-d);
+  color: var(--color-d);  
+}
+
+  .dark .inverted {
+    background-color: var(--bg-d-inv);
+    color: var(--color-d-inv);
+  }
