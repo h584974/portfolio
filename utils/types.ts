@@ -16,5 +16,12 @@ export type AppContext = {
 }
 
 export type Text = {
-    description: string,
+    header: {
+        home: string,
+    },
+    
+    intro: {
+        title: string,
+        description: string,
+    }
 }

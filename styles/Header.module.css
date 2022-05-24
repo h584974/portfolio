@@ -4,8 +4,9 @@
     position: fixed;
     width: 100vw;
     height: var(--header-height);
-    background-color: red;
+    top: 0;
     font-size: calc(var(--header-height) / 2.2);
+    z-index: 1;
 }
 
 .container a:hover {
