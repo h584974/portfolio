@@ -14,3 +14,7 @@ export type AppContext = {
     language: Language,
     toggleLanguage: () => void,
 }
+
+export type Text = {
+    description: string,
+}
