@@ -1,0 +1,35 @@
+.no {
+    background: url('../public/no.svg');
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: calc(var(--header-height) / 2.2);
+    width: calc((4 / 3) * var(--header-height) / 2.2)
+}
+
+.gb {
+    background: url('../public/gb.svg');
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: calc(var(--header-height) / 2.2);
+    width: calc((4 / 3) * var(--header-height) / 2.2)
+}
+
+.sun {
+    background: url('../public/sun.svg');
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: calc(var(--header-height) / 2.2);
+    width: calc((4 / 3) * var(--header-height) / 2.2)
+}
+
+.moon {
+    background: url('../public/moon.svg');
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: calc(var(--header-height) / 2.2);
+    width: calc((4 / 3) * var(--header-height) / 2.2)
+}

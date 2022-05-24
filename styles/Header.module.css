@@ -28,6 +28,10 @@
     justify-content: end;
 }
 
-:is(.left, .right) a {
-    margin-inline: 10vw;
+.left * {
+    margin-left: 10vw;
+}
+
+.right * {
+    margin-right: 1vw;
 }
