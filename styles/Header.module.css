@@ -9,9 +9,13 @@
     z-index: 1;
 }
 
-.container a:hover {
-    cursor: pointer;
-}
+    .container :is(a, button):hover {
+        cursor: pointer;
+    }
+
+    .container button {
+        border: 0;
+    }
 
 .left, .right {
     display: flex;
@@ -34,5 +38,5 @@
 }
 
 .right * {
-    margin-right: 1vw;
+    margin-right: 2vw;
 }
