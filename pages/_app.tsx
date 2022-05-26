@@ -9,9 +9,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
       <>
       <Head>
-        <style>
-          @import url(&apos;https://fonts.googleapis.com/css2?family=Courgette&family=Oleo+Script&display=swap&family=Oooh+Baby&display=swap&apos;);
-        </style>
+      <style>
+        @import url(&apos;https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Kaushan+Script&family=Noto+Serif&family=Oleo+Script&display=swap&apos;);
+      </style>
       </Head>
       <AppContextProvider>
         <ThemeRoot>

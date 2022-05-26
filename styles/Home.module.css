@@ -5,6 +5,7 @@
 
 .front h1 {
     font-family: var(--font-signature);
+    font-weight: 700;
     text-shadow: 5px 5px 4px var(--shadow);
 }
 

@@ -24,9 +24,11 @@
 
   --transission: .25s;
 
-  --font-signature: Oooh Baby, cursive;
-  --font-title: Oleo Script, cursive;
-  --font-text: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  --font-signature: 'Kaushan Script', cursive;
+  --font-title: 'Oleo Script', cursive;
+  --font-text: 'Kalam', cursive;
+  --font-formal: 'Noto Serif', serif;
+  --font-neutral: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
