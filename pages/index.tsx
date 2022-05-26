@@ -16,13 +16,10 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={Styles.content}>
+            <div className={`${Styles.content} ${Styles.left}`}>
                 <div className={Styles.big}>
                     <h1>{Text.intro.title}</h1>
                     <p>{Text.intro.description}</p>
-                </div>
-                <div className={`${Styles.small} ${Styles.center}`}>
-                    <p></p>
                 </div>
             </div>
 
@@ -34,11 +31,12 @@ export default function Home() {
                         width={100}
                         height={100}
                         layout='responsive'
+                        priority
                     />
                 </div>
             </div>
 
-            <div className={Styles.content}>
+            <div className={`${Styles.content} ${Styles.right}`}>
                 <div className={Styles.big}>
                     <h1>{Text.skills.title}</h1>
                     <p>{Text.skills.description}</p>

@@ -15,6 +15,18 @@
         margin-bottom: .5rem;
     }
 
+.left {
+    justify-content: left;
+}
+
+.right {
+    justify-content: right;
+}
+
+.center {
+    justify-content: center;
+}
+
 .front h1 {
     font-family: var(--font-signature);
 }
