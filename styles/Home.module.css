@@ -1,6 +1,6 @@
 .container {
     margin-inline: 2%;
-    margin-bottom: 12rem;
+    margin-bottom: 20vh;
 }
 
 .content {
@@ -9,12 +9,15 @@
     justify-content: center;
     width: 100%;
     margin-block: 2rem;
-    font-family: Courgette, cursive;
 }
 
     .content :is(h1, h2, h3, h4, h5) {
         margin-bottom: .5rem;
     }
+
+.front h1 {
+    font-family: var(--font-signature);
+}
 
 :is(.full, .max, .big, .small, .medium) {
     padding: 1rem;

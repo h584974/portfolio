@@ -10,7 +10,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <>
       <Head>
         <style>
-          @import url(&apos;https://fonts.googleapis.com/css2?family=Courgette&family=Oleo+Script&display=swap&apos;);
+          @import url(&apos;https://fonts.googleapis.com/css2?family=Courgette&family=Oleo+Script&display=swap&family=Oooh+Baby&display=swap&apos;);
         </style>
       </Head>
       <AppContextProvider>

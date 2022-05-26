@@ -14,23 +14,27 @@
   --highlight-d-inv: rgb(255, 220, 0);
 
   --shadow: rgba(150,150,150,0.5);
-  --glass-light: rgba(200,200,200,0.7);
-  --glass-dark: rgba(125,125,125, 0.7);
+  --glass-light: rgba(150,150,150,0.7);
+  --glass-dark: rgba(100,100,100, 0.7);
 
   --header-height: 4vh;
   --border-r: 0.5rem;
   --max: max(100vh, 100vw);
-  --scrollbar-width: 1.2rem;
+  --scrollbar-width: 0.75rem;
 
   --transission: .25s;
+
+  --font-signature: Oooh Baby, cursive;
+  --font-title: Oleo Script, cursive;
+  --font-text: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-text);
 }
 
 body {
@@ -75,6 +79,10 @@ main {
   width: 100vw;
   overflow: auto;
 }
+
+  main :is(h1, h2, h3, h4, h5) {
+    font-family: var(--font-title);
+  }
 
 .light {
   background-color: var(--bg-l);
@@ -127,3 +135,11 @@ main {
     .dark .inverted a:hover {
       color: var(--highlight-d-inv);
     }
+
+@media (min-width: 768px) {
+
+  ::-webkit-scrollbar {
+    width: calc(var(--scrollbar-width) * 1.3)
+  }
+
+}
