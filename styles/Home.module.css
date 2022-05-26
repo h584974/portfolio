@@ -5,6 +5,7 @@
 
 .front h1 {
     font-family: var(--font-signature);
+    text-shadow: 5px 5px 4px var(--shadow);
 }
 
 .small {
@@ -12,14 +13,11 @@
 }
 
 .portrait {
-    width: min(50%, 20rem);
-    border-radius: var(--border-r);
-    border-width: 2px;
-    border-style: solid;
+    width: min(80%, 30rem);
 }
 
     .portrait * {
-        border-radius: calc(var(--border-r) / 1.5);
+        border-radius: 50%;
     }
 
 @media (min-width: 768px) {
