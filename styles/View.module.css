@@ -1,0 +1,108 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+    .content :is(h1, h2, h3, h4, h5) {
+        margin-bottom: .5rem;
+    }
+
+.break_s {
+    height: 0;
+    width: 100%;
+    display: block;
+    margin-block: 5vh;
+}
+
+.break_m {
+    height: 0;
+    width: 100%;
+    display: block;
+    margin-block: 12.5vh;
+}
+
+.break_b {
+    height: 0;
+    width: 100%;
+    display: block;
+    margin-block: 50vh;
+}
+
+.break_max {
+    height: 0;
+    width: 100%;
+    display: block;
+    margin-block: calc(100vh - var(header--height));
+}
+
+.left {
+    justify-content: left;
+}
+
+.right {
+    justify-content: right;
+}
+
+.center {
+    justify-content: center;
+}
+
+:is(.full, .max, .big, .small, .medium) {
+    padding: 1rem;
+}
+
+.full {
+    height: calc(100vh - var(--header-height));
+}
+
+.half {
+    height: calc((100vh - var(--header-height)) / 2);
+}
+
+.max {
+    width: 100%;
+}
+
+.big {
+    width: 75%;
+}
+
+.medium {
+    width: 50%;
+}
+
+.small {
+    width: 25%;
+}
+
+.center_text {
+    text-align: center;
+}
+
+.center_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .center_content * {
+        margin: auto;
+    }
+
+@media (min-width: 768px) {
+
+    .content {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (min-width: 1500px) {
+
+    .content {
+        font-size: 1.4rem;
+    }
+
+}
