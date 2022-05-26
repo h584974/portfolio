@@ -14,9 +14,13 @@
   --highlight-d-inv: rgb(255, 220, 0);
 
   --shadow: rgba(150,150,150,0.5);
+  --glass-light: rgba(200,200,200,0.7);
+  --glass-dark: rgba(125,125,125, 0.7);
 
   --header-height: 4vh;
   --border-r: 0.5rem;
+  --max: max(100vh, 100vw);
+  --scrollbar-width: 1.2rem;
 
   --transission: .25s;
 }
@@ -27,6 +31,24 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: var(--max);
+  margin-block: 0.5rem;
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: var(--max);
 }
 
 a {
@@ -49,8 +71,9 @@ a:hover {
 main {
   position: absolute;
   top: var(--header-height);
-  min-height: calc(100vh - var(--header-height));
+  height: calc(100vh - var(--header-height));
   width: 100vw;
+  overflow: auto;
 }
 
 .light {
@@ -60,6 +83,14 @@ main {
 
   .light a:hover {
     color: var(--highlight-l);
+  }
+
+  .light ::-webkit-scrollbar-thumb {
+    background: var(--glass-light);
+  }
+
+  .light ::-webkit-scrollbar-thumb:hover {
+    background: var(--glass-dark);
   }
 
   .light .inverted {
@@ -78,6 +109,14 @@ main {
 
   .dark a:hover {
     color: var(--highlight-d);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: var(--glass-dark);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--glass-light);
   }
 
   .dark .inverted {

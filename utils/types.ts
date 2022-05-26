@@ -19,8 +19,18 @@ export type Text = {
     header: {
         home: string,
     },
+
+    front: {
+        name: string,
+        description: string,
+    }
     
     intro: {
+        title: string,
+        description: string,
+    }
+
+    skills: {
         title: string,
         description: string,
     }
