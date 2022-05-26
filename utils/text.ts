@@ -3,6 +3,7 @@ import { Text } from './types'
 export const English: Text = {
     header: {
         home: 'HOME',
+        contact: 'CONTACT',
     },
 
     front: {
@@ -34,6 +35,7 @@ export const English: Text = {
 export const Norsk: Text = {
     header: {
         home: 'HJEM',
+        contact: 'KONTAKT',
     },
 
     front: {

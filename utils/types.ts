@@ -18,6 +18,7 @@ export type AppContext = {
 export type Text = {
     header: {
         home: string,
+        contact: string,
     },
 
     front: {
