@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import SnakeGame from '../components/Snake'
 import HomeStyles from '../styles/Home.module.css'
 import ViewStyles from '../styles/View.module.css'
 import { useText } from '../utils/hooks'
@@ -63,6 +64,15 @@ export default function Home() {
                 </div>
                 <div className={`${ViewStyles.medium} ${ViewStyles.half} ${ViewStyles.center_content}`}>
                     <p>(Centered Content Half Size)</p>
+                </div>
+            </div>
+
+            <div className={ViewStyles.break_b} />
+
+            <div className={ViewStyles.content}>
+                <div className={`${ViewStyles.varying_m} ${ViewStyles.half}`}>
+                    <h1>Play some snake</h1>
+                    <SnakeGame />
                 </div>
             </div>
         </div>

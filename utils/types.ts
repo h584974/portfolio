@@ -15,6 +15,15 @@ export type AppContext = {
     toggleLanguage: () => void,
 }
 
+export enum Input {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT,
+    QUIT,
+    UNDEFINED,
+}
+
 export type Text = {
     header: {
         home: string,
