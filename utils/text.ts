@@ -27,7 +27,7 @@ export const English: Text = {
     skills: {
         title: 'Skills',
         description: `The languages and frameworks I am most confident in are JavaScript/TypeScript, React.JS, Next.JS, Node.JS and Java. 
-            I have expecially found a lot of joy from doing web development with Next.JS, TypeScript and React. This website is made using 
+            I have especially found a lot of joy from doing web development with Next.JS, TypeScript and React. This website is made using 
             these technologies.`,
     },
 }
@@ -58,7 +58,7 @@ export const Norsk: Text = {
     skills: {
         title: 'Ferdigheter',
         description: `Språkene og rammeverkene jeg føler meg sterkest i er JavaScript/Typescript, React.JS, Next.JS, Node.JS og Java. 
-            Jeg har spesielt hatt mye glede av å drive med web utvikling i Next.JS, TypeScript og React. Denne nettsiden er laget ved 
+            Jeg har spesielt hatt mye glede av å drive med web utvikling i Next.JS, TypeScript og React. Denne nettsiden er laget med 
             bruk av disse teknologiene.`,
     },
 }

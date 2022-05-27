@@ -2,7 +2,6 @@ import { Input } from "./types"
 
 export function parseInput(event: KeyboardEvent) {
     event.preventDefault()
-    console.log(event.key);
     switch (event.key) {
         case 'ArrowUp':
         case 'w'      :
