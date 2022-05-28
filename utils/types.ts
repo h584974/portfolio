@@ -38,6 +38,8 @@ export type Point2D = {
 
 export type Snake = Point2D[]
 
+export type Food = Point2D[]
+
 export type Text = {
     header: {
         home: string,

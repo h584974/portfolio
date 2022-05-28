@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Styles from '../styles/Snake.module.css'
 import { useAppContext } from '../utils/hooks';
-import { parseInput, pause } from '../utils/snake';
-import { Direction, Input, Point2D, Snake, Theme } from '../utils/types';
+import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types';
 
 const GRID_SIZE: number = 40;
 const SNAKE_START: Snake = [{x: 3, y: GRID_SIZE / 2}, {x: 2, y: GRID_SIZE / 2}, {x: 1, y: GRID_SIZE / 2}]
 const DIRECTION_START: Direction = Direction.RIGHT;
 const SPEED_START: number = 250
+const MAX_FOOD = 20
+const FOOD_DROP_RATE = 0.1
 
 export default function SnakeGame() {
     const { theme } = useAppContext()
@@ -17,6 +18,7 @@ export default function SnakeGame() {
     const [speedMS, setSpeedMS] = useState<number>(SPEED_START)
     const [score, setScore] = useState<number>(0)
     const [snake, setSnake] = useState<Snake>(SNAKE_START)
+    const [food, setFood] = useState<Food>([])
     const [direction, setDirection] = useState<Direction>(DIRECTION_START)
     const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -24,16 +26,19 @@ export default function SnakeGame() {
         const interval = setInterval( () => setTrigger({message: 'ping'}) , speedMS)
         return () => {
             clearInterval(interval)
-            window.removeEventListener('keydown', move)
+            window.removeEventListener('keydown', inputAction)
         }
     }, [])
 
     useEffect( () => {
-        if (playing) updateSnake()
+        if (playing) {
+            updateSnake()
+            dropFood()
+        }
     }, [trigger])
 
     useEffect( () => {
-        playing ? window.addEventListener('keydown', move) : window.removeEventListener('keydown', move);
+        playing ? window.addEventListener('keydown', inputAction) : window.removeEventListener('keydown', inputAction);
     }, [playing])
 
     useEffect( () => {
@@ -64,11 +69,24 @@ export default function SnakeGame() {
                 return
             }
 
+            ctx.fillStyle = 'yellow'
+            food.forEach( ({x, y}) => ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize) )
+
+            ctx.fillStyle = theme === Theme.LIGHT ? 'black' : 'white'
             snake.forEach( ({x, y}) => ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize) )
         }
     }, [snake, gameOver, theme, playing])
 
-    function updateSnake() {
+    async function dropFood() {
+        const doDrop = Math.random() <= FOOD_DROP_RATE;
+        if (doDrop && food.length < MAX_FOOD) {
+            const x = Math.floor(Math.random() * GRID_SIZE)
+            const y = Math.floor(Math.random() * GRID_SIZE)
+            setFood(food => [{x,y}, ...food])
+        }
+    }
+
+    async function updateSnake() {
         const head = snake[0]
         let newHead: Point2D = {x: 0, y: 0};
         switch (direction) {
@@ -94,16 +112,21 @@ export default function SnakeGame() {
             return
         }
 
-        if (snake.some( part => part.x === newHead.x && part.y === newHead.y)) {
+        if (snake.some( part => part.x === newHead.x && part.y === newHead.y )) {
             setGameOver(true)
             return
         }
 
-        const newSnake: Snake = [newHead, ...(snake.slice(0, snake.length - 1))]
-        setSnake(newSnake)
+        if (food.some( part => part.x === newHead.x && part.y === newHead.y )) {
+            setSnake([newHead, ...snake])
+            setScore( score => score + 1 )
+        }
+        else {
+            setSnake([newHead, ...(snake.slice(0, snake.length - 1))])
+        }
     }
 
-    async function move(event: KeyboardEvent) {
+    async function inputAction(event: KeyboardEvent) {
         const input = parseInput(event);
         switch (input) {
             case Input.QUIT:
@@ -128,21 +151,22 @@ export default function SnakeGame() {
         }
     }
 
-    function start() {
+    async function start() {
         setPlaying(true);
         reset()
     }
 
-    function quit() {
+    async function quit() {
         setPlaying(false)
         reset()
     }
 
-    function reset() {
+    async function reset() {
         setGameOver(false)
         setSpeedMS(SPEED_START)
         setSnake(SNAKE_START)
         setScore(0)
+        setFood([])
         setDirection(DIRECTION_START)
     }
 
@@ -152,4 +176,30 @@ export default function SnakeGame() {
             <canvas onClick={start} ref={canvasRef} width={1000} height={1000} />
         </div>
     )
+}
+
+function parseInput(event: KeyboardEvent): Input {
+    event.preventDefault()
+    switch (event.key) {
+        case 'ArrowUp':
+        case 'w'      :
+            return Input.UP
+
+        case 'ArrowDown':
+        case 's'        :
+            return Input.DOWN
+
+        case 'ArrowLeft':
+        case 'a'        :
+            return Input.LEFT
+
+        case 'ArrowRight':
+        case 'd'         :
+            return Input.RIGHT
+
+        case 'Escape':
+            return Input.QUIT
+
+        default: return Input.UNDEFINED
+    }
 }
