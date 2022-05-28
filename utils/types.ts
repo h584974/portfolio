@@ -24,6 +24,20 @@ export enum Input {
     UNDEFINED,
 }
 
+export enum Direction {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT,
+}
+
+export type Point2D = {
+    x: number,
+    y: number;
+}
+
+export type Snake = Point2D[]
+
 export type Text = {
     header: {
         home: string,

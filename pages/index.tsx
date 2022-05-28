@@ -70,11 +70,13 @@ export default function Home() {
             <div className={ViewStyles.break_b} />
 
             <div className={ViewStyles.content}>
-                <div className={`${ViewStyles.varying_m} ${ViewStyles.half}`}>
+                <div className={ViewStyles.fixed_m}>
                     <h1>Play some snake</h1>
                     <SnakeGame />
                 </div>
             </div>
+
+            <div className={ViewStyles.break_m} />
         </div>
     )
 }

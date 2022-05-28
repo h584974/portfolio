@@ -3,14 +3,27 @@
     margin-bottom: 20vh;
 }
 
+@keyframes fade-in {
+    from {
+        color: transparent;
+    }
+
+    to {
+        color: inherit;
+    }
+}
+
 .front h1 {
+    color: transparent;
     font-family: var(--font-signature);
     font-weight: 700;
     text-shadow: 5px 5px 4px var(--shadow);
+    animation: fade-in 2s linear forwards;
 }
 
-.small {
-    width: 25%;
+.front * {
+    color: transparent;
+    animation: fade-in 2s 2s linear forwards;
 }
 
 .portrait {
@@ -24,7 +37,7 @@
 @media (min-width: 768px) {
 
     .container {
-        margin-inline: 10%;
+        margin-inline: 5%;
     }
 
     .front {
@@ -36,7 +49,7 @@
 @media (min-width: 1500px) {
 
     .container {
-        margin-inline: 20%;
+        margin-inline: 10%;
     }
 
     .front {

@@ -25,3 +25,7 @@ export function parseInput(event: KeyboardEvent) {
         default: return Input.UNDEFINED
     }
 }
+
+export async function pause(ms: number) {
+    await new Promise( resolve => setTimeout(resolve, ms) )
+}

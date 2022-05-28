@@ -77,8 +77,8 @@
     width: 25%;
 }
 
-.varying_m {
-    width: 80%;
+.fixed_m {
+    width: min(100%, 30rem);
 }
 
 .center_text {
@@ -101,20 +101,12 @@
         font-size: 1.2rem;
     }
 
-    .varying_m {
-        width: 65%;
-    }
-
 }
 
 @media (min-width: 1500px) {
 
     .content {
         font-size: 1.4rem;
-    }
-
-    .varying_m {
-        width: 50%;
     }
 
 }
