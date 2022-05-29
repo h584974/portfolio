@@ -7,11 +7,19 @@ export default function Front() {
     const Text = useText()
     const { theme } = useAppContext()
     const descRef = useRef<HTMLHeadingElement>(null)
+    const [color, setColor] = useState<string>('black')
     const [transparent, setTransparent] = useState<boolean>(false);
+
+    useEffect( () => {
+        const themeRoot = document.getElementById('themeRoot')
+        const styles = themeRoot ? window.getComputedStyle(themeRoot) : null
+        const col = styles?.color;
+        if (col) setColor(col)
+    }, [theme])
+
     useVaryingInterval(blink, 400, true)
 
     function blink() {
-        const color = theme === Theme.LIGHT ? 'black' : 'yellow'
         const desc: HTMLHeadingElement | null = document.querySelector('h3[id="desc"]')
         const val = desc?.style.getPropertyValue('--bg-after')
         desc?.style.setProperty('--bg-after', val === 'transparent' ? color : 'transparent')

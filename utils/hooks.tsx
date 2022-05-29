@@ -29,10 +29,7 @@ export function useVaryingInterval(callback: () => any, initialInterval: number 
     const [active, setActive] = useState<boolean>(false)
 
     useEffect( () => {
-        if (immediate) {
-            setActive(true)
-            console.log(immediate);
-        }
+        if (immediate) setActive(true)
     }, [])
 
     useEffect( () => {
