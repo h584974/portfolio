@@ -8,7 +8,7 @@ export const English: Text = {
 
     front: {
         name: 'OLIVER O`LOUGHLIN',
-        description: 'Computer Engineer || Front-end && Back-end Developer',
+        description: 'Computer Engineer && Fullstack Developer'
     },
 
     intro: {
@@ -40,7 +40,7 @@ export const Norsk: Text = {
 
     front: {
         name: 'OLIVER O`LOUGHLIN',
-        description: 'Dataingeniør || Front-end && Back-end Utvikler',
+        description: 'Dataingeniør && Fullstack Utvikler'
     },
 
     intro: {

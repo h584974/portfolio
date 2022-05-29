@@ -1,38 +1,82 @@
 .container {
     margin-inline: 2%;
-    margin-bottom: 20vh;
+    margin-bottom: 25vh;
+    font-family: var(--ft-personal);
 }
 
-@keyframes fade-in {
-    from {
-        color: transparent;
+    .container :is(h1, h2, h3, h4, h5) {
+        font-family: var(--ft-title);
     }
 
-    to {
-        color: inherit;
-    }
+.front {
+    font-size: .75rem;
 }
 
-.front h1 {
-    color: transparent;
-    font-family: var(--font-signature);
+    .front h1 {
+        font-family: var(--ft-signature);
+    }
+
+    .front h3 {
+        font-family: var(--ft-mono);
+    }
+
+.name {
     font-weight: 700;
-    text-shadow: 5px 5px 4px var(--shadow);
-    animation: fade-in 2s linear forwards;
+    text-shadow: 4px 4px 4px var(--shadow);
 }
 
-.front * {
-    color: transparent;
-    animation: fade-in 2s 2s linear forwards;
+.description {
+    position: relative;
+    width: max-content;
+    --bg-after: black;
+}
+
+.description::before,
+.description::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: text;
+    animation-delay: 1s;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: inherit;
+}
+
+.description::before {
+    background-color: inherit;
+    animation-name: typewriter;
+}
+
+.description::after {
+    width: 0.1em;
+    background-color: var(--bg-after);
+    animation-name: typewriter;
+}
+
+.portrait_container {
+    width: 15rem;
 }
 
 .portrait {
-    width: min(80%, 30rem);
+    border-radius: 50%;
 }
 
-    .portrait * {
-        border-radius: 50%;
+@keyframes typewriter {
+    to {
+        left: 100%;
     }
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
 
 @media (min-width: 768px) {
 

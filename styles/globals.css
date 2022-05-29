@@ -3,40 +3,47 @@
   --bg-l-inv: rgb(30, 30, 45);
   --color-l: rgb(10, 10, 20);
   --color-l-inv: rgb(150, 190, 225);
-  --highlight-l: rgb(220,220,220);
-  --highlight-l-inv: rgb(200,50,100);
-  
+  --highlight-l: rgb(220, 220, 220);
+  --highlight-l-inv: rgb(200, 50, 100);
+  --glass-clear-l: rgba(0, 0, 0, .3);
+  --glass-foggy-l: rgba(0, 0, 0, .5);
+
   --bg-d: rgb(10, 20, 30);
   --bg-d-inv: rgb(0, 210, 210);
   --color-d: rgb(255, 220, 0);
   --color-d-inv: rgb(10, 20, 30);
   --highlight-d: rgb(10, 180, 10);
   --highlight-d-inv: rgb(255, 220, 0);
+  --glass-clear-d: rgba(255, 255, 255, .3);
+  --glass-foggy-d: rgba(255, 255, 255, .5);
 
-  --shadow: rgba(150,150,150,0.5);
-  --glass-light: rgba(150,150,150,0.7);
-  --glass-dark: rgba(100,100,100, 0.7);
+  --shadow: rgba(150, 150, 150, 0.5);
 
-  --header-height: 4vh;
-  --border-r: 0.5rem;
+  --header-height: 3rem;
+  --view-height: calc(100vh - var(--header-height));
+  --border-r: .5rem;
   --max: max(100vh, 100vw);
-  --scrollbar-width: 0.75rem;
+  --scrollbar-width: 1rem;
+
+  --mobile-ar: 5/6;
 
   --transission: .25s;
 
-  --font-signature: 'Kaushan Script', cursive;
-  --font-title: 'Oleo Script', cursive;
-  --font-text: 'Kalam', cursive;
-  --font-formal: 'Noto Serif', serif;
-  --font-neutral: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  --ft-signature: 'Kaushan Script', cursive;
+  --ft-title: 'Oleo Script', cursive;
+  --ft-personal: 'Kalam', cursive;
+  --ft-formal: 'Noto Serif', serif;
+  --ft-neutral: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --ft-mono: 'Courier New', Courier, monospace;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--font-text);
+  font-family: var(--font-neutral);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -49,12 +56,15 @@ body {
 
 ::-webkit-scrollbar-track {
   border-radius: var(--max);
-  margin-block: 0.5rem;
+  margin-block: .5rem;
+  margin-right: .5rem;
   background-color: inherit;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: var(--max);
+  border-width: 5px;
+  border-style: solid;
 }
 
 a {
@@ -82,30 +92,39 @@ main {
   overflow: auto;
 }
 
-  main :is(h1, h2, h3, h4, h5) {
-    font-family: var(--font-title);
-  }
+main :is(h1, h2, h3, h4, h5) {
+  font-family: var(--font-title);
+}
 
 .light {
   background-color: var(--bg-l);
   color: var(--color-l);
 }
 
+  .light .glass-clear {
+    background-color: var(--glass-clear-l);
+  }
+
+  .light .glass-foggy {
+    background-color: var(--glass-foggy-l);
+  }
+
   .light a:hover {
     color: var(--highlight-l);
   }
 
   .light ::-webkit-scrollbar-thumb {
-    background: var(--glass-light);
+    background: var(--glass-clear-l);
+    border-color: var(--bg-l);
   }
 
   .light ::-webkit-scrollbar-thumb:hover {
-    background: var(--glass-dark);
+    background: var(--glass-foggy-l);
   }
 
   .light .inverted {
     background-color: var(--bg-l-inv);
-    color: var(--color-l-inv);  
+    color: var(--color-l-inv);
   }
 
     .light .inverted a:hover {
@@ -114,19 +133,28 @@ main {
 
 .dark {
   background-color: var(--bg-d);
-  color: var(--color-d);  
+  color: var(--color-d);
 }
+
+  .dark .glass-clear {
+    background-color: var(--glass-clear-d);
+  }
+
+  .dark .glass-foggy {
+    background-color: var(--glass-foggy-d);
+  }
 
   .dark a:hover {
     color: var(--highlight-d);
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    background: var(--glass-dark);
+    background: var(--glass-clear-d);
+    border-color: var(--bg-d);
   }
 
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: var(--glass-light);
+    background: var(--glass-foggy-d);
   }
 
   .dark .inverted {
@@ -142,6 +170,10 @@ main {
 
   ::-webkit-scrollbar {
     width: calc(var(--scrollbar-width) * 1.3)
+  }
+
+  body {
+    font-size: 1.2rem;
   }
 
 }

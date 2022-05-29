@@ -5,8 +5,8 @@
     width: 100vw;
     height: var(--header-height);
     top: 0;
-    font-size: calc(var(--header-height) / 2.2);
-    font-family: var(--font-neutral);
+    font-size: min(calc(var(--header-height) / 2.2), 4vw);
+    font-family: var(--ft-neutral);
     z-index: 1;
 }
 
