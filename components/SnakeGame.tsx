@@ -1,29 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Styles from '../styles/Snake.module.css'
-import { useAppContext, useVaryingInterval } from '../utils/hooks';
-import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types';
+import { useAppContext, useInterval } from '../utils/hooks'
+import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types'
 
 // Constants
-const GRID_SIZE: number = 40;
+const GRID_SIZE: number = 40
 const SNAKE_START: Snake = [{x: 3, y: GRID_SIZE / 2}, {x: 2, y: GRID_SIZE / 2}, {x: 1, y: GRID_SIZE / 2}]
-const DIRECTION_START: Direction = Direction.RIGHT;
+const DIRECTION_START: Direction = Direction.RIGHT
 const SPEED_START: number = 250
-const SPEED_LIMIT = 50;
+const SPEED_LIMIT = 50
+const SPEED_ACCELERATION = 2
 const MAX_FOOD = 20
 const FOOD_DROP_RATE = 0.1
 
 // Snake Game component
 export default function SnakeGame() {
     const { theme } = useAppContext()
-    const [trigger, setTrigger] = useState<{ message: string }>({ message: 'init' })
     const [gameOver, setGameOver] = useState<boolean>(false)
-    const [speedMS, setSpeedMS] = useState<number>(SPEED_START)
     const [score, setScore] = useState<number>(0)
     const [highScore, setHighScore] = useState<number>(0)
     const [snake, setSnake] = useState<Snake>(SNAKE_START)
     const [food, setFood] = useState<Food>([])
     const [direction, setDirection] = useState<Direction>(DIRECTION_START)
-    const { active, updateInterval, startInterval, stopInterval } = useVaryingInterval(play, SPEED_START)
+    const { active, updateInterval, startInterval, stopInterval } = useInterval(play, SPEED_START)
     const canvasRef = useRef<HTMLCanvasElement>(null)
 
     // Remove event listener upon dismount
@@ -79,7 +78,7 @@ export default function SnakeGame() {
     }
 
     function updateFood() {
-        const doDrop = Math.random() <= FOOD_DROP_RATE;
+        const doDrop = Math.random() <= FOOD_DROP_RATE
         if (doDrop && food.length < MAX_FOOD) {
             const x = Math.floor(Math.random() * GRID_SIZE)
             const y = Math.floor(Math.random() * GRID_SIZE)
@@ -89,7 +88,7 @@ export default function SnakeGame() {
 
     function updateSnake() {
         const head = snake[0]
-        let newHead: Point2D = {x: 0, y: 0};
+        let newHead: Point2D = {x: 0, y: 0}
         switch (direction) {
             case Direction.UP: 
                 newHead = {x: head.x, y: head.y - 1}
@@ -125,7 +124,7 @@ export default function SnakeGame() {
                 if (newScore > highScore) setHighScore(newScore)
                 return newScore
             } )
-            setSpeedMS( speed => Math.max(speed - 2, SPEED_LIMIT) )
+            updateInterval( interval => Math.max(interval - SPEED_ACCELERATION, SPEED_LIMIT) )
         }
         else {
             setSnake([newHead, ...(snake.slice(0, snake.length - 1))])
@@ -133,7 +132,7 @@ export default function SnakeGame() {
     }
 
     function inputAction(event: KeyboardEvent) {
-        const input = parseInput(event);
+        const input = parseInput(event)
         switch (input) {
             case Input.QUIT:
                 quit()
@@ -173,7 +172,6 @@ export default function SnakeGame() {
 
     function reset() {
         setGameOver(false)
-        setSpeedMS(SPEED_START)
         setSnake(SNAKE_START)
         setScore(0)
         setFood([])

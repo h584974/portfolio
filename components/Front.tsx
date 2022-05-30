@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Styles from '../styles/Home.module.css'
-import { useAppContext, useText, useVaryingInterval } from '../utils/hooks'
+import { useAppContext, useText, useInterval } from '../utils/hooks'
 import { Theme } from '../utils/types'
 
 export default function Front() {
@@ -17,7 +17,7 @@ export default function Front() {
         if (col) setColor(col)
     }, [theme])
 
-    useVaryingInterval(blink, 400, true)
+    useInterval(blink, 400, true)
 
     function blink() {
         const desc: HTMLHeadingElement | null = document.querySelector('h3[id="desc"]')

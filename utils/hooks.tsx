@@ -17,7 +17,7 @@ export function useText(): Text {
     }
 }
 
-export function useVaryingInterval(callback: () => any, initialInterval: number = 1000, immediate: boolean = false): 
+export function useInterval(callback: () => any, initialInterval: number = 1000, immediate: boolean = false): 
 {
     active: boolean, 
     updateInterval: React.Dispatch<React.SetStateAction<number>>, 
