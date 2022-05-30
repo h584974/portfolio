@@ -38,5 +38,11 @@ export default function AppContextProvider({ children }: { children: JSX.Element
         toggleLanguage
     }
 
-    return <Context.Provider value={context}>{children}</Context.Provider>
+    return (
+        <Context.Provider value={context}>
+            <div id='themeRoot' className={theme}>
+                {children}
+            </div>
+        </Context.Provider>
+    )
 }

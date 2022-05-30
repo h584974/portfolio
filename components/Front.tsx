@@ -1,18 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import Styles from '../styles/Home.module.css'
 import { useAppContext, useText, useInterval } from '../utils/hooks'
-import { Theme } from '../utils/types'
 
 export default function Front() {
     const Text = useText()
     const { theme } = useAppContext()
     const descRef = useRef<HTMLHeadingElement>(null)
+    const frontRef = useRef<HTMLDivElement>(null)
     const [color, setColor] = useState<string>('black')
-    const [transparent, setTransparent] = useState<boolean>(false);
 
     useEffect( () => {
-        const themeRoot = document.getElementById('themeRoot')
-        const styles = themeRoot ? window.getComputedStyle(themeRoot) : null
+        const front = frontRef.current
+        const styles = front ? window.getComputedStyle(front) : null
         const col = styles?.color;
         if (col) setColor(col)
     }, [theme])
@@ -26,7 +25,7 @@ export default function Front() {
     }
 
     return (
-        <div className={Styles.front}>
+        <div className={Styles.front} ref={frontRef}>
             <h1 className={Styles.name}>{Text.front.name}</h1>
             <h3 
                 id='desc'

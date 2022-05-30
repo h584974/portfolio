@@ -2,7 +2,6 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Header from '../components/Header'
 import AppContextProvider from '../components/AppContextProvider'
-import ThemeRoot from '../components/ThemeRoot'
 import Head from 'next/head'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -14,12 +13,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </style>
       </Head>
       <AppContextProvider>
-        <ThemeRoot>
-          <Header />
-          <main>
-            <Component {...pageProps} />
-          </main>
-        </ThemeRoot>
+        <Header />
+        <main>
+          <Component {...pageProps} />
+        </main>
       </AppContextProvider>
       </>
   )
