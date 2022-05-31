@@ -41,15 +41,6 @@ export default function SnakeGame() {
     }, [])
 
     useEffect( () => {
-        function fitFillText(text: string, ctx: CanvasRenderingContext2D, size: number) {
-            const maxChars = 20
-            const fontSize = size / maxChars
-            const x = (maxChars - text.length) / 2 * fontSize
-            const y = size / 2
-            ctx.font = `bold ${fontSize}px Courier New`
-            ctx.fillText(text, x, y)
-        }
-
         const canvas = canvasRef.current
         const ctx = canvas?.getContext('2d')
         if (ctx && canvas) {
@@ -266,4 +257,13 @@ function parseInput(event: KeyboardEvent): Input {
 
         default: return Input.UNDEFINED
     }
+}
+
+function fitFillText(text: string, ctx: CanvasRenderingContext2D, size: number) {
+    const maxChars = 20
+    const fontSize = size / maxChars
+    const x = (maxChars - text.length) / 2 * fontSize + (9 * text.length)
+    const y = size / 2
+    ctx.font = `bold ${fontSize}px Courier New`
+    ctx.fillText(text, x, y)
 }
