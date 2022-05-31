@@ -210,7 +210,7 @@ export default function SnakeGame() {
                         <form onSubmit={submitUsername}>
                             <input
                                 type='text'
-                                placeholder='Username'
+                                placeholder='Enter username'
                                 ref={usernameRef}
                                 required
                             />
