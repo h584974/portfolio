@@ -50,32 +50,6 @@ body {
   overflow: hidden;
 }
 
-::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-}
-
-::-webkit-scrollbar-track {
-  border-radius: var(--max);
-  margin-block: .5rem;
-  margin-right: .5rem;
-  background-color: inherit;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: var(--max);
-  border-width: 5px;
-  border-style: solid;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  transition: var(--transission);
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -96,10 +70,45 @@ main :is(h1, h2, h3, h4, h5) {
   font-family: var(--font-title);
 }
 
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: var(--max);
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: var(--max);
+  border-width: 5px;
+  border-style: solid;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: var(--transission);
+}
+
+button, input {
+  border-radius: var(--max);
+  border-style: solid;
+  border-width: 2px;
+  padding: .25rem;
+}
+
 .light {
   background-color: var(--bg-l);
   color: var(--color-l);
 }
+
+  .light button, input {
+    border-color: var(--color-l);
+  }
 
   .light .glass-clear {
     background-color: var(--glass-clear-l);
@@ -135,6 +144,10 @@ main :is(h1, h2, h3, h4, h5) {
   background-color: var(--bg-d);
   color: var(--color-d);
 }
+
+  .dark button, input {
+    border-color: var(--color-d);
+  }
 
   .dark .glass-clear {
     background-color: var(--glass-clear-d);

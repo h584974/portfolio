@@ -1,3 +1,5 @@
+import { User as USER } from "firebase/auth"
+
 export enum Theme {
     LIGHT = 'light',
     DARK = 'dark',
@@ -8,11 +10,26 @@ export enum Language {
     NORSK = 'norsk',
 }
 
+export type AuthUser = USER | null
+
+export type DbUser = null | {
+    username: string | null,
+    snakeHighScore: number | null
+}
+
+export type User = null | {
+    uid: string,
+    email: string | null,
+    username: string | null,
+    snakeHighScore: number | null,
+}
+
 export type AppContext = {
     theme: Theme,
     toggleTheme: () => void,
     language: Language,
     toggleLanguage: () => void,
+    user: User,
 }
 
 export enum Input {

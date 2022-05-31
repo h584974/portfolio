@@ -1,23 +1,42 @@
+import { NextOrObserver } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import { Theme, AppContext, Language } from "../utils/types";
+import { getDocumentData, onAuthStateChanged, onDocumentChanged, signInAnonymously } from "../services/firebase";
+import { Theme, AppContext, Language, User, AuthUser, DbUser } from "../utils/types";
 
 export const Context = createContext<AppContext>({
     theme: Theme.LIGHT,
     toggleTheme: () => {},
     language: Language.ENGLISH,
     toggleLanguage: () => {},
+    user: null,
 })
 
 export default function AppContextProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
     const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
     const [language, setLanguage] = useState<Language>(Language.ENGLISH)
+    const [authUser, setAuthUser] = useState<AuthUser>(null)
+    const [dbUser, setDbUser] = useState<DbUser>(null)
 
     useEffect( () => {
         const storedTheme = localStorage.getItem('theme')
         const storedLanguage = localStorage.getItem('language')
         if (storedTheme) setTheme( storedTheme === Theme.DARK ? Theme.DARK : Theme.LIGHT )
         if (storedLanguage) setLanguage( storedLanguage === Language.NORSK ? Language.NORSK : Language.ENGLISH )
+
+        const unsub = onAuthStateChanged(setAuthUser)
+        
+        return unsub
     }, [])
+
+    useEffect( () => {
+        if (authUser) {
+            const unsub = onDocumentChanged('users', authUser.uid, setDbUser)
+            return unsub
+        }
+        else {
+            signInAnonymously()
+        }
+    }, [authUser])
 
     const toggleTheme = () => setTheme( theme => {
         const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
@@ -31,11 +50,18 @@ export default function AppContextProvider({ children }: { children: JSX.Element
         return newLanguage
     })
 
+    const user: User = !authUser ? null : {
+        uid: authUser.uid,
+        email: authUser.email,
+        ...dbUser ?? { username: null, snakeHighScore: null },
+    }
+
     const context = {
         theme,
         toggleTheme,
         language,
-        toggleLanguage
+        toggleLanguage,
+        user,
     }
 
     return (

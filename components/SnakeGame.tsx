@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { getSnakeHighScores, onCollectionChanged, onDocumentChanged, setDocument, updateDocument } from '../services/firebase'
 import Styles from '../styles/Snake.module.css'
 import { useAppContext, useInterval } from '../utils/hooks'
 import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types'
@@ -15,7 +16,8 @@ const FOOD_DROP_RATE = 0.1
 
 // Snake Game component
 export default function SnakeGame() {
-    const { theme } = useAppContext()
+    const { theme, user } = useAppContext()
+    const [highScores, setHighScores] = useState<any[]>([])
     const [gameOver, setGameOver] = useState<boolean>(false)
     const [score, setScore] = useState<number>(0)
     const [highScore, setHighScore] = useState<number>(0)
@@ -24,13 +26,16 @@ export default function SnakeGame() {
     const [direction, setDirection] = useState<Direction>(DIRECTION_START)
     const { active, updateInterval, startInterval, stopInterval } = useInterval(play, SPEED_START)
     const canvasRef = useRef<HTMLCanvasElement>(null)
+    const usernameRef = useRef<HTMLInputElement>(null)
 
-    // Remove event listener upon dismount
     useEffect( () => {
-        return () => window.removeEventListener('keydown', inputAction)
+        const unsub = onCollectionChanged('users', setHighScores)
+        return () => {
+            window.removeEventListener('keydown', inputAction)
+            unsub()
+        }
     }, [])
 
-    // Draw updated objects
     useEffect( () => {
         function fitFillText(text: string, ctx: CanvasRenderingContext2D, size: number) {
             const maxChars = 20
@@ -119,9 +124,16 @@ export default function SnakeGame() {
 
         if (food.some( part => part.x === newHead.x && part.y === newHead.y )) {
             setSnake([newHead, ...snake])
+            setFood( food.filter( ({x, y}) => x !== newHead.x || y !== newHead.y ) )
             setScore( score => {
                 const newScore = score + 1
-                if (newScore > highScore) setHighScore(newScore)
+                if (user && newScore > (user.snakeHighScore ?? 0)) {
+                    if (user.snakeHighScore || user.snakeHighScore === 0) updateDocument('users', user.uid, { snakeHighScore: newScore })
+                    else setDocument('users', user.uid, {
+                        username: 'anonymous',
+                        snakeHighScore: newScore
+                    })
+                }
                 return newScore
             } )
             updateInterval( interval => Math.max(interval - SPEED_ACCELERATION, SPEED_LIMIT) )
@@ -179,13 +191,42 @@ export default function SnakeGame() {
         updateInterval(SPEED_START)
     }
 
+    function submitUsername(e: any) {
+        e.preventDefault()
+        if (user && user.username === 'anonymous') {
+            const username = usernameRef.current?.value
+            const valid = username && username.length <= 10 && username.length >= 1
+            if (valid) updateDocument('users', user.uid, { username })
+        }
+    }
+
     return (
         <div className={Styles.container}>
-            <span className={Styles.scoreboard}>
-                <p>Score: {score}</p>
-                <p>High Score: {highScore}</p>
-            </span>
-            <canvas onClick={start} ref={canvasRef} width={1000} height={1000} />
+            <div className={Styles.game_container}>
+                <span className={Styles.score_banner}>
+                    <p>Score: {score}</p>
+                    <p>High Score: {user?.snakeHighScore ?? 0}</p>
+                </span>
+                <canvas onClick={start} ref={canvasRef} width={1000} height={1000} />
+            </div>
+            <div className={Styles.leaderboard}>
+                <ol>
+                    <li>
+                        <form onSubmit={submitUsername}>
+                            <input
+                                type='text'
+                                placeholder='Username'
+                                ref={usernameRef}
+                                required
+                            />
+                            <button type="submit">Submit</button>
+                        </form>
+                    </li>
+                    <br />
+                    <li><strong>Leaderboard:</strong></li>
+                    {highScores.map( ({ username, snakeHighScore }, index) => <li key={index}>{username}: {snakeHighScore}</li> )}
+                </ol>
+            </div>
         </div>
     )
 }

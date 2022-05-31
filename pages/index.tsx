@@ -55,7 +55,7 @@ export default function Home() {
             <div className={ViewStyles.break_b} />
 
             <div className={ViewStyles.grid}>
-                <div className={`${ViewStyles.start_3} ${ViewStyles.end_5}`}>
+                <div className={`${ViewStyles.start_2} ${ViewStyles.end_6}`}>
                     <SnakeGame />
                 </div>
             </div>

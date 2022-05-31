@@ -1,16 +1,49 @@
 .container {
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 100%;
+
+    --game-w: 80%;
+    --canvas-bw: .5rem;
+    --score-banner-h: 2rem;
+}
+
+.container .game_container {
+    width: var(--game-w);
 }
 
 .container canvas {
-    border-width: 8px;
+    display: inline-block;
+    border-width: var(--canvas-bw);
     border-style: solid;
-    width: inherit;
+    width: 100%;
 }
 
-.scoreboard {
+.score_banner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+    height: var(--score-banner-h);
+}
+
+.leaderboard {
+    height: inherit;
+    width: calc(100% - var(--game-w));
+    font-family: var(--ft-mono);
+}
+
+.leaderboard ol {
+    padding-top: calc(var(--canvas-bw) + var(--score-banner-h));
+    padding-left: 1rem;
+    list-style: none;
+}
+
+.leaderboard button {
+    margin-block: .5rem;
+}
+
+.leaderboard *::placeholder {
+    margin-inline: 1rem;
 }
