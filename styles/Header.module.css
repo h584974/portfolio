@@ -18,6 +18,10 @@
         border: 0;
     }
 
+    .container button {
+        border-radius: 0;
+    }
+
 .left, .right {
     display: flex;
     flex-direction: row;

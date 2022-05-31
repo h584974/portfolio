@@ -4,7 +4,7 @@
     background-position: 50%;
     background-repeat: no-repeat;
     height: calc(var(--header-height) / 2.2);
-    width: calc((4 / 3) * var(--header-height) / 2.2)
+    width: calc((4 / 3) * var(--header-height) / 2.2);
 }
 
 .gb {
