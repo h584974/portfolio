@@ -3,6 +3,7 @@
   --bg-l-inv: rgb(30, 30, 45);
   --color-l: rgb(10, 10, 20);
   --color-l-inv: rgb(150, 190, 225);
+  --color-ph-l: rgb(100,100,100);
   --highlight-l: rgb(220, 220, 220);
   --highlight-l-inv: rgb(200, 50, 100);
   --glass-clear-l: rgba(0, 0, 0, .3);
@@ -12,6 +13,7 @@
   --bg-d-inv: rgb(0, 210, 210);
   --color-d: rgb(255, 220, 0);
   --color-d-inv: rgb(10, 20, 30);
+  --color-ph-d: rgb(200,200,200);
   --highlight-d: rgb(10, 180, 10);
   --highlight-d-inv: rgb(255, 220, 0);
   --glass-clear-d: rgba(255, 255, 255, .3);
@@ -98,7 +100,11 @@ button, input {
   border-radius: var(--max);
   border-style: solid;
   border-width: 2px;
-  padding: .25rem;
+  padding: .5rem;
+}
+
+::placeholder {
+  text-align: center;
 }
 
 .light {
@@ -108,6 +114,10 @@ button, input {
 
   .light button, input {
     border-color: var(--color-l);
+  }
+
+  .light ::placeholder {
+    color: var(--color-ph-l);
   }
 
   .light .glass-clear {
@@ -147,6 +157,10 @@ button, input {
 
   .dark button, input {
     border-color: var(--color-d);
+  }
+
+  .dark ::placeholder {
+    color: var(--color-ph-d);
   }
 
   .dark .glass-clear {

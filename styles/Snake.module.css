@@ -1,22 +1,12 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-
-    --game-w: 80%;
     --canvas-bw: .5rem;
     --score-banner-h: 2rem;
 }
 
-.container .game_container {
-    width: var(--game-w);
-}
-
 .container canvas {
-    display: inline-block;
     border-width: var(--canvas-bw);
     border-style: solid;
+    aspect-ratio: 1/1;
     width: 100%;
 }
 
@@ -25,25 +15,23 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    height: var(--score-banner-h);
 }
 
 .leaderboard {
     height: inherit;
-    width: calc(100% - var(--game-w));
+    width: 100%;
     font-family: var(--ft-mono);
 }
 
 .leaderboard ol {
-    padding-top: calc(var(--canvas-bw) + var(--score-banner-h));
-    padding-left: 1rem;
     list-style: none;
 }
 
-.leaderboard button {
-    margin-block: .5rem;
+.leaderboard form {
+    display: flex;
+    flex-direction: row;
 }
 
-.leaderboard *::placeholder {
-    margin-inline: 1rem;
+.leaderboard button {
+    margin-left: 1rem;
 }

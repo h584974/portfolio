@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getSnakeHighScores, onCollectionChanged, onDocumentChanged, setDocument, updateDocument } from '../services/firebase'
-import Styles from '../styles/Snake.module.css'
+import { onCollectionChanged, setDocument, updateDocument } from '../services/firebase'
+import SnakeStyles from '../styles/Snake.module.css'
+import ViewStyles from '../styles/View.module.css'
 import { useAppContext, useInterval } from '../utils/hooks'
 import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types'
 
 // Constants
-const GRID_SIZE: number = 40
+const GRID_SIZE = 40
 const SNAKE_START: Snake = [{x: 3, y: GRID_SIZE / 2}, {x: 2, y: GRID_SIZE / 2}, {x: 1, y: GRID_SIZE / 2}]
-const DIRECTION_START: Direction = Direction.RIGHT
-const SPEED_START: number = 250
+const DIRECTION_START = Direction.RIGHT
+const SPEED_START = 250
 const SPEED_LIMIT = 50
 const SPEED_ACCELERATION = 2
 const MAX_FOOD = 20
@@ -17,10 +18,9 @@ const FOOD_DROP_RATE = 0.1
 // Snake Game component
 export default function SnakeGame() {
     const { theme, user } = useAppContext()
-    const [highScores, setHighScores] = useState<any[]>([])
+    const [leaderboard, setLeaderboard] = useState<any[]>([])
     const [gameOver, setGameOver] = useState<boolean>(false)
     const [score, setScore] = useState<number>(0)
-    const [highScore, setHighScore] = useState<number>(0)
     const [snake, setSnake] = useState<Snake>(SNAKE_START)
     const [food, setFood] = useState<Food>([])
     const [direction, setDirection] = useState<Direction>(DIRECTION_START)
@@ -29,7 +29,11 @@ export default function SnakeGame() {
     const usernameRef = useRef<HTMLInputElement>(null)
 
     useEffect( () => {
-        const unsub = onCollectionChanged('users', setHighScores)
+        const unsub = onCollectionChanged('users', dataArray => {
+            const leaderboard = dataArray.sort( (user1, user2) => user2.snakeHighScore - user1.snakeHighScore )
+            setLeaderboard(leaderboard)
+        })
+
         return () => {
             window.removeEventListener('keydown', inputAction)
             unsub()
@@ -201,15 +205,15 @@ export default function SnakeGame() {
     }
 
     return (
-        <div className={Styles.container}>
-            <div className={Styles.game_container}>
-                <span className={Styles.score_banner}>
+        <div className={`${ViewStyles.grid} ${SnakeStyles.container}`}>
+            <div className={ViewStyles.col_span_4}>
+                <span className={SnakeStyles.score_banner}>
                     <p>Score: {score}</p>
                     <p>High Score: {user?.snakeHighScore ?? 0}</p>
                 </span>
                 <canvas onClick={start} ref={canvasRef} width={1000} height={1000} />
             </div>
-            <div className={Styles.leaderboard}>
+            <div className={`${ViewStyles.col_span_2} ${SnakeStyles.leaderboard}`}>
                 <ol>
                     <li>
                         <form onSubmit={submitUsername}>
@@ -224,7 +228,14 @@ export default function SnakeGame() {
                     </li>
                     <br />
                     <li><strong>Leaderboard:</strong></li>
-                    {highScores.map( ({ username, snakeHighScore }, index) => <li key={index}>{username}: {snakeHighScore}</li> )}
+                    {leaderboard.map( ({ username, snakeHighScore }, index) => {
+                        return (
+                            <li className={ViewStyles.grid_s} key={index}>
+                                <p>{username}</p>
+                                <p>{snakeHighScore}</p>
+                            </li>
+                        )
+                    } )}
                 </ol>
             </div>
         </div>
