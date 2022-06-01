@@ -41,6 +41,7 @@
     left: 0;
     right: 0;
     cursor: text;
+    animation-name: typewriter;
     animation-delay: 1s;
     animation-duration: 6s;
     animation-fill-mode: forwards;
@@ -49,13 +50,11 @@
 
 .description::before {
     background-color: inherit;
-    animation-name: typewriter;
 }
 
 .description::after {
     width: 0.1em;
     background-color: var(--bg-after);
-    animation-name: typewriter;
 }
 
 .portrait_container {

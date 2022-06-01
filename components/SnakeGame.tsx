@@ -4,6 +4,8 @@ import SnakeStyles from '../styles/Snake.module.css'
 import ViewStyles from '../styles/View.module.css'
 import { useAppContext, useInterval } from '../utils/hooks'
 import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types'
+import Filter from 'bad-words'
+import { updateUsername } from '../utils/user'
 
 // Constants
 const GRID_SIZE = 40
@@ -188,16 +190,13 @@ export default function SnakeGame() {
 
     function submitUsername(e: any) {
         e.preventDefault()
-        if (user && user.username === 'anonymous') {
-            const username = usernameRef.current?.value
-            const valid = username && username.length <= 10 && username.length >= 1
-            if (valid) updateDocument('users', user.uid, { username })
-        }
+        const username = usernameRef.current?.value
+        if (user && username) updateUsername(username, user.uid)
     }
 
     return (
-        <div className={`${ViewStyles.grid} ${SnakeStyles.container}`}>
-            <div className={ViewStyles.col_span_4}>
+        <div className={`${ViewStyles.grid_5} ${SnakeStyles.container}`}>
+            <div className={ViewStyles.col_span_3}>
                 <span className={SnakeStyles.score_banner}>
                     <p>Score: {score}</p>
                     <p>High Score: {user?.snakeHighScore ?? 0}</p>
@@ -212,6 +211,8 @@ export default function SnakeGame() {
                                 type='text'
                                 placeholder='Enter username'
                                 ref={usernameRef}
+                                maxLength={10}
+                                minLength={1}
                                 required
                             />
                             <button type="submit">Submit</button>
@@ -221,7 +222,7 @@ export default function SnakeGame() {
                     <li><strong>Leaderboard:</strong></li>
                     {leaderboard.map( ({ username, snakeHighScore }, index) => {
                         return (
-                            <li className={ViewStyles.grid_s} key={index}>
+                            <li className={ViewStyles.grid_2} key={index}>
                                 <p>{username}</p>
                                 <p>{snakeHighScore}</p>
                             </li>

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import Styles from '../styles/Home.module.css'
+import FrontStyles from '../styles/Home.module.css'
+import ViewStyles from '../styles/View.module.css'
 import { useAppContext, useText, useInterval } from '../utils/hooks'
 
 export default function Front() {
@@ -8,6 +9,7 @@ export default function Front() {
     const descRef = useRef<HTMLHeadingElement>(null)
     const frontRef = useRef<HTMLDivElement>(null)
     const [color, setColor] = useState<string>('black')
+    useInterval(blink, 400, true)
 
     useEffect( () => {
         const front = frontRef.current
@@ -16,8 +18,6 @@ export default function Front() {
         if (col) setColor(col)
     }, [theme])
 
-    useInterval(blink, 400, true)
-
     function blink() {
         const desc: HTMLHeadingElement | null = document.querySelector('h3[id="desc"]')
         const val = desc?.style.getPropertyValue('--bg-after')
@@ -25,16 +25,25 @@ export default function Front() {
     }
 
     return (
-        <div className={Styles.front} ref={frontRef}>
-            <h1 className={Styles.name}>{Text.front.name}</h1>
-            <h3 
-                id='desc'
-                className={Styles.description}
-                ref={descRef}
-                style={{animationTimingFunction: `steps(${Text.front.description.length})`}}
-            >
-                {Text.front.description}
-            </h3>
+        <div className={ViewStyles.grid_6}>
+                <div ref={frontRef} className={`
+                    ${ViewStyles.col_span_6} 
+                    ${ViewStyles.centered_h} 
+                    ${ViewStyles.centered_v} 
+                    ${ViewStyles.full} 
+                    ${ViewStyles.centered_text} 
+                    ${FrontStyles.front}`
+                }>
+                    <h1 className={FrontStyles.name}>{Text.front.name}</h1>
+                    <h3 
+                        id='desc'
+                        className={FrontStyles.description}
+                        ref={descRef}
+                        style={{animationTimingFunction: `steps(${Text.front.description.length})`}}
+                    >
+                        {Text.front.description}
+                    </h3>
+                </div>
         </div>
     )
 }

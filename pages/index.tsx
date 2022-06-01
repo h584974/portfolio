@@ -10,19 +10,10 @@ export default function Home() {
 
     return (
         <div className={HomeStyles.container}>
-            <div className={ViewStyles.grid}>
-                <div className={`
-                    ${ViewStyles.col_span_6} 
-                    ${ViewStyles.centered_h} 
-                    ${ViewStyles.centered_v} 
-                    ${ViewStyles.full} 
-                    ${ViewStyles.centered_text}`
-                }>
-                    <Front />
-                </div>
-            </div>
 
-            <div className={ViewStyles.grid}>
+            <Front />
+
+            <div className={ViewStyles.grid_6}>
                 <div className={ViewStyles.col_span_3}>
                     <h2>{Text.intro.title}</h2>
                     <p>{Text.intro.description}</p>
@@ -42,7 +33,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={ViewStyles.grid}>
+            <div className={ViewStyles.grid_6}>
                 <div className={`${ViewStyles.start_4} ${ViewStyles.end_7}`}>
                     <h2>{Text.skills.title}</h2>
                     <p>{Text.skills.description}</p>
