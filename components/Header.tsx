@@ -12,6 +12,7 @@ export default function Header() {
             <div className={`${Styles.left} inverted`}>
                 <Link href='/'><a>{Text.header.home}</a></Link>
                 <Link href='/contact'><a>{Text.header.contact}</a></Link>
+                <Link href='/games'><a>{Text.header.games}</a></Link>
             </div>
             <div className={`${Styles.right} inverted`}>
                 <LanguageToggle />

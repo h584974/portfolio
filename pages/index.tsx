@@ -9,7 +9,7 @@ export default function Home() {
     const Text = useText()
 
     return (
-        <div className={HomeStyles.container}>
+        <div className={`${HomeStyles.container} ${ViewStyles.container}`}>
 
             <Front />
 
@@ -43,9 +43,6 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={ViewStyles.break_b} />
-
-            <SnakeGame />
         </div >
     )
 }

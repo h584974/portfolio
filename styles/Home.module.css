@@ -1,6 +1,4 @@
 .container {
-    margin-inline: 2%;
-    margin-bottom: 25vh;
     font-family: var(--ft-personal);
 }
 
@@ -79,10 +77,6 @@
 
 @media (min-width: 768px) {
 
-    .container {
-        margin-inline: 5%;
-    }
-
     .front {
         font-size: 1.5rem;
     }
@@ -90,10 +84,6 @@
 }
 
 @media (min-width: 1500px) {
-
-    .container {
-        margin-inline: 10%;
-    }
 
     .front {
         font-size: 2rem;

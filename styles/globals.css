@@ -19,15 +19,15 @@
   --glass-clear-d: rgba(255, 255, 255, .3);
   --glass-foggy-d: rgba(255, 255, 255, .5);
 
-  --shadow: rgba(150, 150, 150, 0.5);
+  --scrollbar-color: linear-gradient(rgba(255,0,0,0.5), rgba(0,255,0,0.5), rgba(0,0,255,0.5));
+  --scrollbar-highlight-color: linear-gradient(rgba(255,0,0,0.7), rgba(0,255,0,0.7), rgba(0,0,255,0.7));
+  --shadow-light: rgba(255, 255, 255, .5);
+  --shadow-dark: rgba(0, 0, 0, .5);
 
   --header-height: 3rem;
   --view-height: calc(100vh - var(--header-height));
-  --border-r: .5rem;
   --max: max(100vh, 100vw);
   --scrollbar-width: 1rem;
-
-  --mobile-ar: 5/6;
 
   --transission: .25s;
 
@@ -85,6 +85,11 @@ main :is(h1, h2, h3, h4, h5) {
   border-radius: var(--max);
   border-width: 5px;
   border-style: solid;
+  background:var(--scrollbar-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:var(--scrollbar-highlight-color);
 }
 
 a {
@@ -92,7 +97,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover, a:focus, button:hover, button:focus {
   transition: var(--transission);
 }
 
@@ -103,8 +108,19 @@ button, input {
   padding: .5rem;
 }
 
+button {
+  border-top-color: var(--shadow-light);
+  border-left-color: var(--shadow-light);
+  border-bottom-color: var(--shadow-dark);
+  border-right-color: var(--shadow-dark);
+}
+
+button:focus {
+  border: 1px solid black;
+}
+
 ::placeholder {
-  text-align: center;
+  text-align: left;
 }
 
 .light {
@@ -112,8 +128,21 @@ button, input {
   color: var(--color-l);
 }
 
-  .light :is(button, input) {
+  .light input {
     border-color: var(--color-l);
+  }
+
+  .light button {
+    background-color: var(--bg-l-inv);
+    color: var(--color-l-inv);
+  }
+
+  .light button:hover {
+    color: var(--highlight-l-inv);
+  }
+
+  .light button:focus {
+    border-color: var(--bg-l);
   }
 
   .light ::placeholder {
@@ -133,12 +162,7 @@ button, input {
   }
 
   .light ::-webkit-scrollbar-thumb {
-    background: var(--glass-clear-l);
     border-color: var(--bg-l);
-  }
-
-  .light ::-webkit-scrollbar-thumb:hover {
-    background: var(--glass-foggy-l);
   }
 
   .light .inverted {
@@ -155,8 +179,17 @@ button, input {
   color: var(--color-d);
 }
 
-  .dark :is(button, input) {
+  .dark input {
     border-color: var(--color-d);
+  }
+
+  .dark button {
+    background-color: var(--bg-d-inv);
+    color: var(--color-d-inv);
+  }
+
+  .dark button:hover {
+    color: var(--highlight-d-inv);
   }
 
   .dark ::placeholder {
@@ -176,12 +209,7 @@ button, input {
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    background: var(--glass-clear-d);
     border-color: var(--bg-d);
-  }
-
-  .dark ::-webkit-scrollbar-thumb:hover {
-    background: var(--glass-foggy-d);
   }
 
   .dark .inverted {

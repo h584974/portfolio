@@ -1,12 +1,14 @@
+.container {
+    margin-inline: 8%;
+    margin-bottom: 25vh;
+    font-family: var(--ft-personal);
+}
+
 .grid_6 {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(6, 1fr);
 }
-
-    .grid_6 > * {
-        padding: 1rem;
-    }
 
 .grid_5 {
     display: grid;
@@ -14,19 +16,11 @@
     grid-template-columns: repeat(5, 1fr);
 }
 
-    .grid_4 > * {
-        padding: 1rem;
-    }
-
 .grid_4 {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(4, 1fr);
 }
-
-    .grid_4 > * {
-        padding: 1rem;
-    }
 
 .grid_2 {
     display: grid;
@@ -34,9 +28,9 @@
     grid-template-columns: 1fr 1fr;
 }
 
-    .grid_2 > * {
-        padding: 1rem;
-    }
+:is(.grid_6, .grid_5, .grid_4) > * {
+    padding: 1rem;
+}
 
 .col_span_2 {
     grid-column: span 2;
@@ -145,6 +139,10 @@
 }
 
 @media (max-aspect-ratio: 5/6) {
+
+    .container {
+        margin-inline: 2%;
+    }
 
     :is(.grid_6, .grid_5, .grid_4) {
         grid-template-columns: 1fr;

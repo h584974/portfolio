@@ -61,6 +61,7 @@ export type Text = {
     header: {
         home: string,
         contact: string,
+        games: string,
     },
 
     front: {
@@ -77,4 +78,14 @@ export type Text = {
         title: string,
         description: string,
     },
+
+    snake: {
+        score: string,
+        highScore: string,
+        leaderboard: string,
+        usernamePlaceholder: string,
+        usernameSubmit: string,
+        startGame: string,
+        gameOver: string,
+    }
 }

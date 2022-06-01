@@ -4,6 +4,7 @@ export const English: Text = {
     header: {
         home: 'HOME',
         contact: 'CONTACT',
+        games: 'GAMES',
     },
 
     front: {
@@ -30,12 +31,23 @@ export const English: Text = {
             I have especially found a lot of joy from doing web development with Next.JS, TypeScript and React. This website is made using 
             these technologies.`,
     },
+
+    snake: {
+        score: 'Score',
+        highScore: 'High Score',
+        leaderboard: 'Leaderboard',
+        usernamePlaceholder: 'Enter username',
+        usernameSubmit: 'Submit',
+        startGame: 'PRESS HERE TO START',
+        gameOver: 'GAME OVER',
+    }
 }
 
 export const Norsk: Text = {
     header: {
         home: 'HJEM',
         contact: 'KONTAKT',
+        games: 'SPILL',
     },
 
     front: {
@@ -61,4 +73,14 @@ export const Norsk: Text = {
             Jeg har spesielt funnet mye glede av å drive med web utvikling i Next.JS, TypeScript og React. Denne nettsiden er laget med 
             bruk av disse teknologiene.`,
     },
+
+    snake: {
+        score: 'Poeng',
+        highScore: 'Din Rekord',
+        leaderboard: 'Ledertavle',
+        usernamePlaceholder: 'Skriv ditt brukernavn',
+        usernameSubmit: 'Send',
+        startGame: 'TRYKK HER FOR Å STARTE',
+        gameOver: 'SPILLET ER SLUTT',
+    }
 }

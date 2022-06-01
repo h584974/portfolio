@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { onCollectionChanged, setDocument, updateDocument } from '../services/firebase'
 import SnakeStyles from '../styles/Snake.module.css'
 import ViewStyles from '../styles/View.module.css'
-import { useAppContext, useInterval } from '../utils/hooks'
+import { useAppContext, useInterval, useText } from '../utils/hooks'
 import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types'
-import Filter from 'bad-words'
 import { updateUsername } from '../utils/user'
 
 // Constants
@@ -19,6 +18,7 @@ const FOOD_DROP_RATE = 0.1
 
 // Snake Game component
 export default function SnakeGame() {
+    const Text = useText()
     const { theme, user } = useAppContext()
     const [leaderboard, setLeaderboard] = useState<any[]>([])
     const [gameOver, setGameOver] = useState<boolean>(false)
@@ -52,12 +52,12 @@ export default function SnakeGame() {
             ctx.fillStyle = theme === Theme.LIGHT ? 'black' : 'white'
 
             if (gameOver) {
-                fitFillText('GAME OVER', ctx, size)
+                fitFillText(Text.snake.gameOver, ctx, size)
                 return
             }
 
             if (!active) {
-                fitFillText('PRESS HERE TO START', ctx, size)
+                fitFillText(Text.snake.startGame, ctx, size)
                 return
             }
 
@@ -67,7 +67,7 @@ export default function SnakeGame() {
             ctx.fillStyle = theme === Theme.LIGHT ? 'black' : 'white'
             snake.forEach( ({x, y}) => ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize) )
         }
-    }, [snake, gameOver, theme, active])
+    }, [snake, gameOver, theme, active, Text])
 
     function play() {
         if (gameOver) {
@@ -195,11 +195,11 @@ export default function SnakeGame() {
     }
 
     return (
-        <div className={`${ViewStyles.grid_5} ${SnakeStyles.container}`}>
+        <div className={`${ViewStyles.grid_6} ${SnakeStyles.container}`}>
             <div className={ViewStyles.col_span_3}>
                 <span className={SnakeStyles.score_banner}>
-                    <p>Score: {score}</p>
-                    <p>High Score: {user?.snakeHighScore ?? 0}</p>
+                    <p>{Text.snake.score}: {score}</p>
+                    <p>{Text.snake.highScore}: {user?.snakeHighScore ?? 0}</p>
                 </span>
                 <canvas onClick={start} ref={canvasRef} width={1000} height={1000} />
             </div>
@@ -209,17 +209,17 @@ export default function SnakeGame() {
                         <form onSubmit={submitUsername}>
                             <input
                                 type='text'
-                                placeholder='Enter username'
+                                placeholder={Text.snake.usernamePlaceholder}
                                 ref={usernameRef}
                                 maxLength={10}
                                 minLength={1}
                                 required
                             />
-                            <button type="submit">Submit</button>
+                            <button type="submit">{Text.snake.usernameSubmit}</button>
                         </form>
                     </li>
                     <br />
-                    <li><strong>Leaderboard:</strong></li>
+                    <li><strong>{Text.snake.leaderboard}:</strong></li>
                     {leaderboard.map( ({ username, snakeHighScore }, index) => {
                         return (
                             <li className={ViewStyles.grid_2} key={index}>

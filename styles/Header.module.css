@@ -8,6 +8,7 @@
     font-size: min(calc(var(--header-height) / 2.2), 4vw);
     font-family: var(--ft-neutral);
     z-index: 1;
+    --left-w: 80%;
 }
 
     .container :is(a, button):hover {
@@ -15,27 +16,26 @@
     }
 
     .container button {
-        border: 0;
-    }
-
-    .container button {
+        border-width: 0;
         border-radius: 0;
+        transition: 0s;
     }
 
 .left, .right {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 50vw;
     height: 100%;
 }
 
 .left {
     justify-content: flex-start;
+    width: var(--left-w);
 }
 
 .right {
     justify-content: end;
+    width: calc(100% - var(--left-w));
 }
 
 .left * {
