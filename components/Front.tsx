@@ -32,8 +32,8 @@ export default function Front() {
                     ${ViewStyles.centered_v} 
                     ${ViewStyles.full} 
                     ${ViewStyles.centered_text} 
-                    ${FrontStyles.front}`
-                }>
+                    ${FrontStyles.front}
+                    `}>
                     <h1 className={FrontStyles.name}>{Text.front.name}</h1>
                     <h3 
                         id='desc'

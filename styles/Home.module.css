@@ -1,5 +1,6 @@
 .container {
     font-family: var(--ft-personal);
+    margin-bottom: 25vh;
 }
 
     .container :is(h1, h2, h3, h4, h5) {
@@ -20,7 +21,7 @@
 
 .name {
     font-weight: 700;
-    text-shadow: 4px 4px 4px var(--shadow);
+    text-shadow: 4px 4px 4px var(--shadow-dark);
 }
 
 .description {
