@@ -5,17 +5,24 @@ import { useText } from '../utils/hooks'
 export default function ContactForm() {
     const { contact } = useText()
 
-    function handleSubmit(e: any) {
+    async function handleSubmit(e: any) {
         e.preventDefault()
         const formElem = e.target
         const formData = new FormData(formElem)
         formElem.reset()
         const form = Object.fromEntries(formData.entries())
-        fetch('/api/email', {
+        const res = await fetch('/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(form),
         })
+
+        if (res.status === 200) {
+            alert(contact.success)
+        }
+        else {
+            alert(contact.error)
+        }
     }
 
     return (

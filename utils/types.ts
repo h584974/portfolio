@@ -96,5 +96,7 @@ export type Text = {
         emailPlaceholder: string,
         messagePlaceholder: string,
         sendMessage: string,
+        success: string,
+        error: string,
     },
 }
