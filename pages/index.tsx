@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Front from '../components/Front'
-import SnakeGame from '../components/SnakeGame'
 import HomeStyles from '../styles/Home.module.css'
 import ViewStyles from '../styles/View.module.css'
 import { useText } from '../utils/hooks'
@@ -9,7 +8,7 @@ export default function Home() {
     const Text = useText()
 
     return (
-        <div className={`${HomeStyles.container} ${ViewStyles.container}`}>
+        <div id='homeContainer' className={`${HomeStyles.container} ${ViewStyles.container}`}>
 
             <Front />
 

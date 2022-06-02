@@ -1,0 +1,13 @@
+.form {
+    padding: 2rem;
+    font-size: 150%;
+}
+
+.form > * {
+    margin-block: 1rem;
+    font-family: var(--ft-formal);
+}
+
+.form textarea {
+    max-width: 100%;
+}

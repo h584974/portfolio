@@ -1,24 +1,4 @@
 :root {
-  --bg-l: rgb(250, 250, 255);
-  --bg-l-inv: rgb(30, 30, 45);
-  --color-l: rgb(10, 10, 20);
-  --color-l-inv: rgb(150, 190, 225);
-  --color-ph-l: rgb(125,125,125);
-  --highlight-l: rgb(220, 220, 220);
-  --highlight-l-inv: rgb(200, 50, 100);
-  --glass-clear-l: rgba(0, 0, 0, .3);
-  --glass-foggy-l: rgba(0, 0, 0, .5);
-
-  --bg-d: rgb(10, 20, 30);
-  --bg-d-inv: rgb(0, 210, 210);
-  --color-d: rgb(20, 190, 140);
-  --color-d-inv: rgb(10, 20, 30);
-  --color-ph-d: rgb(150,150,150);
-  --highlight-d: rgb(10, 180, 10);
-  --highlight-d-inv: rgb(255, 220, 0);
-  --glass-clear-d: rgba(255, 255, 255, .3);
-  --glass-foggy-d: rgba(255, 255, 255, .5);
-
   --scrollbar-color: linear-gradient(rgba(255,0,0,0.5), rgba(0,255,0,0.5), rgba(0,0,255,0.5));
   --scrollbar-highlight-color: linear-gradient(rgba(255,0,0,0.7), rgba(0,255,0,0.7), rgba(0,0,255,0.7));
   --shadow-light: rgba(255, 255, 255, .5);
@@ -27,7 +7,8 @@
   --header-height: 3rem;
   --view-height: calc(100vh - var(--header-height));
   --max: max(100vh, 100vw);
-  --scrollbar-width: 1rem;
+  --border-r: 1rem;
+  --scrollbar-width: .6rem;
 
   --transission: .25s;
 
@@ -45,7 +26,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-neutral);
-  scroll-behavior: smooth;
 }
 
 body {
@@ -65,7 +45,8 @@ main {
   top: var(--header-height);
   height: calc(100vh - var(--header-height));
   width: 100vw;
-  overflow: auto;
+  overflow: overlay;
+  scroll-behavior: smooth;
 }
 
 main :is(h1, h2, h3, h4, h5) {
@@ -78,13 +59,12 @@ main :is(h1, h2, h3, h4, h5) {
 
 ::-webkit-scrollbar-track {
   border-radius: var(--max);
-  background-color: inherit;
+  background: transparent;
+  margin-block: var(--scrollbar-width);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: var(--max);
-  border-width: 5px;
-  border-style: solid;
   background:var(--scrollbar-color);
 }
 
@@ -123,103 +103,13 @@ button:focus {
   text-align: left;
 }
 
-.light {
-  background-color: var(--bg-l);
-  color: var(--color-l);
+textarea {
+  resize: none;
+  padding: .5rem;
+  border-radius: var(--border-r);
+  border-width: 2px;
+  border-style: solid;
 }
-
-  .light input {
-    border-color: var(--color-l);
-  }
-
-  .light button {
-    background-color: var(--bg-l-inv);
-    color: var(--color-l-inv);
-  }
-
-  .light button:hover {
-    color: var(--highlight-l-inv);
-  }
-
-  .light button:focus {
-    border-color: var(--bg-l);
-  }
-
-  .light ::placeholder {
-    color: var(--color-ph-l);
-  }
-
-  .light .glass-clear {
-    background-color: var(--glass-clear-l);
-  }
-
-  .light .glass-foggy {
-    background-color: var(--glass-foggy-l);
-  }
-
-  .light a:hover {
-    color: var(--highlight-l);
-  }
-
-  .light ::-webkit-scrollbar-thumb {
-    border-color: var(--bg-l);
-  }
-
-  .light .inverted {
-    background-color: var(--bg-l-inv);
-    color: var(--color-l-inv);
-  }
-
-    .light .inverted a:hover {
-      color: var(--highlight-l-inv);
-    }
-
-.dark {
-  background-color: var(--bg-d);
-  color: var(--color-d);
-}
-
-  .dark input {
-    border-color: var(--color-d);
-  }
-
-  .dark button {
-    background-color: var(--bg-d-inv);
-    color: var(--color-d-inv);
-  }
-
-  .dark button:hover {
-    color: var(--highlight-d-inv);
-  }
-
-  .dark ::placeholder {
-    color: var(--color-ph-d);
-  }
-
-  .dark .glass-clear {
-    background-color: var(--glass-clear-d);
-  }
-
-  .dark .glass-foggy {
-    background-color: var(--glass-foggy-d);
-  }
-
-  .dark a:hover {
-    color: var(--highlight-d);
-  }
-
-  .dark ::-webkit-scrollbar-thumb {
-    border-color: var(--bg-d);
-  }
-
-  .dark .inverted {
-    background-color: var(--bg-d-inv);
-    color: var(--color-d-inv);
-  }
-
-    .dark .inverted a:hover {
-      color: var(--highlight-d-inv);
-    }
 
 @media (min-width: 768px) {
 

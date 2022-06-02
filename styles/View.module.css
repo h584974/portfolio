@@ -1,3 +1,13 @@
+.container_bg {
+    width: 100%;
+    margin: 0;
+}
+
+.inline_left {
+    display: inline-block;
+    text-align: left;
+}
+
 .container {
     margin-inline: 8%;
     font-family: var(--ft-personal);
@@ -102,11 +112,11 @@
 }
 
 .full {
-    height: var(--view-height);
+    min-height: var(--view-height);
 }
 
 .half {
-    height: calc(var(--view-height) / 2);
+    min-height: calc(var(--view-height) / 2);
 }
 
 .break_s {

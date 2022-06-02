@@ -1,8 +1,11 @@
 import '../styles/globals.css'
+import '../styles/dark.css'
+import '../styles/light.css'
 import type { AppProps } from 'next/app'
 import Header from '../components/Header'
 import AppContextProvider from '../components/AppContextProvider'
 import Head from 'next/head'
+import ContactForm from '../components/ContactForm'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,6 +19,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <Header />
         <main>
           <Component {...pageProps} />
+          <ContactForm />
         </main>
       </AppContextProvider>
       </>
