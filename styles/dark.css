@@ -2,12 +2,12 @@
 
 :root {
     --bg-d: rgb(10, 20, 30);
-    --bg-d-inv: rgb(0, 210, 210);
+    --bg-d-inv: rgb(12, 101, 111);
     --color-d: rgb(20, 190, 140);
     --color-d-inv: rgb(10, 20, 30);
     --color-ph-d: rgb(100,100,100);
-    --color-ph-d-inv: rgb(125,125,125);
-    --highlight-d: rgb(10, 180, 10);
+    --color-ph-d-inv: rgb(150,150,150);
+    --highlight-d: rgb(149, 255, 0);
     --highlight-d-inv: rgb(255, 220, 0);
     --glass-clear-d: rgba(255, 255, 255, .15);
     --glass-foggy-d: rgba(255, 255, 255, .30);
@@ -66,15 +66,15 @@
     color: var(--color-d-inv);
 }
 
-.dark .iverted input {
+.dark .inverted input {
     border-color: var(--color-d-inv);
 }
 
-.dark .iverted textarea {
+.dark .inverted textarea {
     border-color: var(--color-d-inv);
 }
   
-.dark .iverted button {
+.dark .inverted button {
     background-color: var(--bg-d);
     color: var(--color-d);
 }
