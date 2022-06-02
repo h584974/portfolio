@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "bad-words": "^3.0.4",
     "firebase": "^9.8.2",
     "next": "12.1.6",

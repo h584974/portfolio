@@ -4,6 +4,15 @@ import ContactStyles from '../styles/Contact.module.css'
 export default function ContactForm() {
     function handleSubmit(e: any) {
         e.preventDefault()
+        const formElem = e.target
+        const formData = new FormData(formElem)
+        formElem.reset()
+        const form = Object.fromEntries(formData.entries())
+        fetch('/api/email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(form),
+        })
     }
 
     return (
