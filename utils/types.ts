@@ -87,5 +87,14 @@ export type Text = {
         usernameSubmit: string,
         startGame: string,
         gameOver: string,
-    }
+    },
+
+    contact: {
+        title: string,
+        firstNamePlaceholder: string;
+        lastNamePlaceholder: string,
+        emailPlaceholder: string,
+        messagePlaceholder: string,
+        sendMessage: string,
+    },
 }

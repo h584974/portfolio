@@ -40,6 +40,15 @@ export const English: Text = {
         usernameSubmit: 'Submit',
         startGame: 'PRESS HERE TO START',
         gameOver: 'GAME OVER',
+    },
+
+    contact: {
+        title: 'Contact Me',
+        firstNamePlaceholder: 'First Name',
+        lastNamePlaceholder: 'Last Name',
+        emailPlaceholder: 'Email Address',
+        messagePlaceholder: 'Message / Question',
+        sendMessage: 'Send Message',
     }
 }
 
@@ -82,5 +91,14 @@ export const Norsk: Text = {
         usernameSubmit: 'Send',
         startGame: 'TRYKK HER FOR Å STARTE',
         gameOver: 'SPILLET ER SLUTT',
+    },
+
+    contact: {
+        title: 'Kontakt Meg',
+        firstNamePlaceholder: 'Fornavn',
+        lastNamePlaceholder: 'Etternavn',
+        emailPlaceholder: 'Epost Addresse',
+        messagePlaceholder: 'Melding / Spørsmål',
+        sendMessage: 'Send Melding',
     }
 }
