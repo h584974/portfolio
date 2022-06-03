@@ -1,6 +1,18 @@
-.container_bg {
+.section_full {
     width: 100%;
-    margin: 0;
+    min-height: var(--view-height);
+    padding-inline: 8%;
+}
+
+.section_half {
+    width: 100%;
+    min-height: calc(var(--view-height) / 2);
+    padding-inline: 8%;
+}
+
+.section {
+    width: 100%;
+    padding-inline: 8%;
 }
 
 .inline_left {
@@ -9,29 +21,29 @@
     max-width: 100%;
 }
 
-.container {
-    margin-inline: 8%;
-}
-
 .grid_6 {
+    width: 100%;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(6, 1fr);
 }
 
 .grid_5 {
+    width: 100%;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(5, 1fr);
 }
 
 .grid_4 {
+    width: 100%;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(4, 1fr);
 }
 
 .grid_2 {
+    width: 100%;
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
@@ -97,8 +109,12 @@
     grid-column-end: 7;
 }
 
-.centered_h {
-    margin-inline: auto;
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .centered_v {
@@ -109,14 +125,6 @@
 
 .centered_text {
     text-align: center;
-}
-
-.full {
-    min-height: var(--view-height);
-}
-
-.half {
-    min-height: calc(var(--view-height) / 2);
 }
 
 .break_s {
@@ -149,8 +157,16 @@
 
 @media (max-aspect-ratio: 5/6) {
 
-    .container {
-        margin-inline: 2%;
+    .section_full {
+        padding-inline: 2%;
+    }
+
+    .section_half {
+        padding-inline: 2%;
+    }
+
+    .section {
+        padding-inline: 2%;
     }
 
     :is(.grid_6, .grid_5, .grid_4) {

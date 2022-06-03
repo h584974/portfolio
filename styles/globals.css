@@ -4,13 +4,13 @@
   --shadow-light: rgba(255, 255, 255, .5);
   --shadow-dark: rgba(0, 0, 0, .5);
 
-  --header-height: 3rem;
+  --header-height: 2.2rem;
   --view-height: calc(100vh - var(--header-height));
   --max: max(100vh, 100vw);
   --border-r: 1rem;
-  --scrollbar-width: .6rem;
+  --scrollbar-width: .8rem;
 
-  --transission: .25s;
+  --transission: .2s;
 
   --ft-signature: 'Kaushan Script', cursive;
   --ft-title: 'Oleo Script', cursive;
@@ -19,6 +19,8 @@
   --ft-neutral: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --ft-mono: 'Courier New', Courier, monospace;
+
+  --fs: 20px;
 }
 
 html,
@@ -26,6 +28,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-neutral);
+  font-size: var(--fs);
 }
 
 body {
@@ -90,7 +93,7 @@ button {
   border-right-color: var(--shadow-dark);
 }
 
-button:hover {
+button:hover, a:hover {
   transform: scale(1.03);
 }
 
@@ -111,14 +114,11 @@ textarea {
   border-style: solid;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
 
-  ::-webkit-scrollbar {
-    width: calc(var(--scrollbar-width) * 1.3)
-  }
-
-  body {
-    font-size: 1.2rem;
+  :root {
+   --fs: 13px;
+   --header-height: 3rem;
   }
 
 }

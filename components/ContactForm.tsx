@@ -26,8 +26,8 @@ export default function ContactForm() {
     }
 
     return (
-        <div id='contactContainer' className={`${ViewStyles.container_bg} inverted`}>
-            <div className={`${ViewStyles.half} ${ViewStyles.centered_text}`}>
+        <div id='contactContainer' className={`${ViewStyles.section} inverted`}>
+            <div className={ViewStyles.centered_text}>
                 <div className={ViewStyles.inline_left}>
                     <form className={ContactStyles.form} onSubmit={handleSubmit}>
                         <h1>{contact.title}</h1>

@@ -5,11 +5,11 @@
 .form > * {
     margin-block: 1rem;
     font-family: var(--ft-formal);
-    font-size: inherit;
+    font-size: 1rem;
 }
 
 .form > h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 .form > input {

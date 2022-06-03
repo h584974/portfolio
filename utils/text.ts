@@ -12,7 +12,7 @@ export const English: Text = {
         description: 'Computer Engineer && Fullstack Developer'
     },
 
-    intro: {
+    about: {
         title: 'About Me',
 
         description: `Hi! My name is Oliver, I am norwegian/british and have 23 years of life experience. 
@@ -30,6 +30,7 @@ export const English: Text = {
         description: `The languages and frameworks I am most confident in are JavaScript/TypeScript, React.JS, Next.JS, Node.JS and Java. 
             I have especially found a lot of joy from doing web development with Next.JS, TypeScript and React. This website is made using 
             these technologies.`,
+        technologies: 'Languages / Frameworks',
     },
 
     snake: {
@@ -66,7 +67,7 @@ export const Norsk: Text = {
         description: 'Dataingeniør && Fullstack Utvikler'
     },
 
-    intro: {
+    about: {
         title: 'Om Meg',
 
         description: `Hei! Mitt navn er Oliver, jeg er norsk/britisk og har 23 år med livserfaring. Jeg er en dataingeniør, 
@@ -83,6 +84,7 @@ export const Norsk: Text = {
         description: `Språkene og rammeverkene jeg føler meg sterkest i er JavaScript/Typescript, React.JS, Next.JS, Node.JS og Java. 
             Jeg har spesielt funnet mye glede av å drive med web utvikling i Next.JS, TypeScript og React. Denne nettsiden er laget med 
             bruk av disse teknologiene.`,
+        technologies: 'Språk / Rammeverk'
     },
 
     snake: {

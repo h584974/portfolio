@@ -69,7 +69,7 @@ export type Text = {
         description: string,
     },
     
-    intro: {
+    about: {
         title: string,
         description: string,
     },
@@ -77,6 +77,7 @@ export type Text = {
     skills: {
         title: string,
         description: string,
+        technologies: string,
     },
 
     snake: {

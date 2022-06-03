@@ -1,35 +1,24 @@
-.no {
-    background: url('../public/no.svg');
+.icon {
     background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
     height: calc(var(--header-height) / 2.2);
     width: calc((4 / 3) * var(--header-height) / 2.2);
+    padding: 0;
+}
+
+.no {
+    background-image: url('../public/no.svg');
 }
 
 .gb {
-    background: url('../public/gb.svg');
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    height: calc(var(--header-height) / 2.2);
-    width: calc((4 / 3) * var(--header-height) / 2.2)
+    background-image: url('../public/gb.svg');
 }
 
 .sun {
-    background: url('../public/sun.svg');
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    height: calc(var(--header-height) / 2.2);
-    width: calc((4 / 3) * var(--header-height) / 2.2);
+    background-image: url('../public/sun.svg');
 }
 
 .moon {
-    background: url('../public/moon.svg');
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    height: calc(var(--header-height) / 2.2);
-    width: calc((4 / 3) * var(--header-height) / 2.2)
+    background-image: url('../public/moon.svg');
 }

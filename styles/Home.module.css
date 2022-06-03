@@ -1,6 +1,5 @@
 .container {
     font-family: var(--ft-personal);
-    margin-bottom: 25vh;
 }
 
     .container :is(h1, h2, h3, h4, h5) {
@@ -8,7 +7,7 @@
     }
 
 .front {
-    font-size: .75rem;
+    font-size: 1.2rem;
 }
 
     .front h1 {
@@ -76,18 +75,10 @@
     }
 }
 
-@media (min-width: 768px) {
-
-    .front {
-        font-size: 1.5rem;
-    }
-
-}
-
 @media (min-width: 1500px) {
 
     .front {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
 }
