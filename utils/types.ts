@@ -60,6 +60,7 @@ export type Food = Point2D[]
 export type Text = {
     header: {
         home: string,
+        cv: string,
         contact: string,
         games: string,
     },

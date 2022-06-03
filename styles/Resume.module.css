@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.container embed {
+    height: 100%;
+    width: calc(100% - var(--scrollbar-width));
+    border: 6px solid black;
+}

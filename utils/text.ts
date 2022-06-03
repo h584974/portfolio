@@ -3,6 +3,7 @@ import { Text } from './types'
 export const English: Text = {
     header: {
         home: 'HOME',
+        cv: 'CV',
         contact: 'CONTACT',
         games: 'GAMES',
     },
@@ -58,6 +59,7 @@ export const English: Text = {
 export const Norsk: Text = {
     header: {
         home: 'HJEM',
+        cv: 'CV',
         contact: 'KONTAKT',
         games: 'SPILL',
     },

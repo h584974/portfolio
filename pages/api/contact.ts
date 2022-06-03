@@ -19,7 +19,7 @@ export default async function Email(req: NextApiRequest, res: NextApiResponse) {
             `
 
             try {
-                await sendEmail('hello', 'Portfolio Contact Form Message', text)
+                await sendEmail('contact', 'Portfolio Contact Form Message', text)
                 ok(res, { message: 'Email Sent Successfully' })
             }
             catch (err) {

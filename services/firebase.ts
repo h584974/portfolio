@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, getDoc, getDocs, setDoc, addDoc, updateDoc, doc, onSnapshot, query, where, orderBy, limit, collection } from 'firebase/firestore'
 import { getAuth, signInAnonymously as signInAnon, onAuthStateChanged as authStateChanged, signOut as logOut, Unsubscribe, NextOrObserver, User } from 'firebase/auth'
+import { getStorage, uploadBytes, getBlob } from 'firebase/storage'
 
 const config = {
     apiKey: "AIzaSyDMEA8cJbdvAAlqVGEEPLX34G4MOZ_FzSc",
@@ -12,8 +13,10 @@ const config = {
     measurementId: "G-FE6K4209F6",
 };
 
+// Initialisation of services
 const app = initializeApp(config)
 const firestore = getFirestore(app)
+const storage = getStorage(app)
 const auth = getAuth(app)
 
 // Auth utility functions
@@ -60,3 +63,5 @@ export async function getSnakeHighScores() {
     const docs = await getDocs(q)
     return docs.docs.map( doc => doc.data() )
 }
+
+// Storage utility functions
