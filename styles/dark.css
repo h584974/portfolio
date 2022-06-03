@@ -2,13 +2,13 @@
 
 :root {
     --bg-d: rgb(10, 20, 30);
-    --bg-d-inv: rgb(12, 101, 111);
+    --bg-d-inv: rgb(0, 75, 90);
     --color-d: rgb(20, 190, 140);
-    --color-d-inv: rgb(10, 20, 30);
+    --color-d-inv: rgb(220, 240, 250);
     --color-ph-d: rgb(100,100,100);
-    --color-ph-d-inv: rgb(150,150,150);
-    --highlight-d: rgb(149, 255, 0);
-    --highlight-d-inv: rgb(255, 220, 0);
+    --color-ph-d-inv: rgb(125,125,125);
+    --highlight-d: rgb(150, 255, 0);
+    --highlight-d-inv: rgb(20, 230, 255);
     --glass-clear-d: rgba(255, 255, 255, .15);
     --glass-foggy-d: rgba(255, 255, 255, .30);
     --glass-clear-d-inv: rgba(0, 0, 0, .15);

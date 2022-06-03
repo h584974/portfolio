@@ -1,13 +1,21 @@
 .form {
     padding: 2rem;
-    font-size: 150%;
 }
 
 .form > * {
     margin-block: 1rem;
     font-family: var(--ft-formal);
+    font-size: inherit;
 }
 
-.form textarea {
+.form > h1 {
+    font-size: 3.5rem;
+}
+
+.form > input {
+    width: 70%;
+}
+
+.form > textarea {
     max-width: 100%;
 }

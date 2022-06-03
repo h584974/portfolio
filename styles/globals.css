@@ -49,10 +49,6 @@ main {
   scroll-behavior: smooth;
 }
 
-main :is(h1, h2, h3, h4, h5) {
-  font-family: var(--font-title);
-}
-
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
 }
@@ -65,7 +61,7 @@ main :is(h1, h2, h3, h4, h5) {
 
 ::-webkit-scrollbar-thumb {
   border-radius: var(--max);
-  background:var(--scrollbar-color);
+  background: var(--scrollbar-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -94,8 +90,13 @@ button {
   border-right-color: var(--shadow-dark);
 }
 
+button:hover {
+  transform: scale(1.03);
+}
+
 button:focus {
   border: 1px solid black;
+  transform: scale(1);
 }
 
 ::placeholder {

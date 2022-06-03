@@ -6,11 +6,11 @@
 .inline_left {
     display: inline-block;
     text-align: left;
+    max-width: 100%;
 }
 
 .container {
     margin-inline: 8%;
-    font-family: var(--ft-personal);
 }
 
 .grid_6 {
