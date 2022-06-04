@@ -1,9 +1,13 @@
 import ViewStyles from '../styles/View.module.css'
 import ContactStyles from '../styles/Contact.module.css'
 import { useText } from '../utils/hooks'
+import { useRef } from 'react'
+
+const MESSAGE_TIMEOUT = 10_000 // ms
 
 export default function ContactForm() {
     const { contact } = useText()
+    const msgRef = useRef<HTMLParagraphElement>(null)
 
     async function handleSubmit(e: any) {
         e.preventDefault()
@@ -17,16 +21,29 @@ export default function ContactForm() {
         })
 
         if (res.status === 200) {
-            alert(contact.success)
+            if (msgRef.current) {
+                const msg = msgRef.current
+                msg.innerText = contact.success
+                msg.className = `${ContactStyles.message} ${ContactStyles.green}`
+                msg.hidden = false
+                setTimeout( () => msg.hidden = true, MESSAGE_TIMEOUT)
+            }
             formElem.reset()
         }
         else {
-            alert(contact.error)
+            if (msgRef.current) {
+                const msg = msgRef.current
+                msg.innerText = contact.error
+                msg.className = `${ContactStyles.message} ${ContactStyles.red}`
+                msg.hidden = false
+                setTimeout( () => msg.hidden = true, MESSAGE_TIMEOUT)
+            }
         }
     }
 
     return (
-        <div id='contactContainer' className={`${ViewStyles.section} inverted`}>
+        <div id='contactContainer' className={`${ViewStyles.section} ${ContactStyles.container} inverted`}>
+            <p ref={msgRef} className={ContactStyles.message} hidden>Message was sent</p>
             <div className={ViewStyles.centered_text}>
                 <div className={ViewStyles.inline_left}>
                     <form className={ContactStyles.form} onSubmit={handleSubmit}>

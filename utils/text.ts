@@ -50,7 +50,7 @@ export const English: Text = {
         emailPlaceholder: 'Email Address',
         messagePlaceholder: 'Message / Question',
         sendMessage: 'Send Message',
-        success: 'Message was delivered!',
+        success: 'Message was sent',
         error: 'Something went wrong!',
     }
 }
@@ -104,7 +104,7 @@ export const Norsk: Text = {
         emailPlaceholder: 'Epost Addresse',
         messagePlaceholder: 'Melding / Spørsmål',
         sendMessage: 'Send Melding',
-        success: 'Meldingen ble levert!',
+        success: 'Meldingen ble sent',
         error: 'Noe gikk galt!',
     }
 }

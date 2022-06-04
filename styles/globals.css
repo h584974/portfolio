@@ -4,6 +4,8 @@
   --shadow-light: rgba(255, 255, 255, .5);
   --shadow-dark: rgba(0, 0, 0, .5);
 
+  --box-shadow: 1px 1px 4px var(--shadow-dark);
+
   --header-height: 2.2rem;
   --view-height: calc(100vh - var(--header-height));
   --max: max(100vh, 100vw);
@@ -115,7 +117,7 @@ textarea {
 }
 
 button, input, textarea {
-  box-shadow: 1px 1px 4px var(--shadow-dark);
+  box-shadow: var(--box-shadow);
 }
 
 @media (max-width: 768px) {
