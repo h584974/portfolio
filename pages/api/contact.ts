@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import ok, { badRequest, internalServerError, methodNotAllowed } from "../../utils/api";
-import { sendEmail } from "../../utils/email";
+import { NextApiRequest, NextApiResponse } from "next"
+import { ok, badRequest, internalServerError, methodNotAllowed } from "../../utils/api"
+import { sendEmail } from "../../utils/email"
 
 export default async function Email(req: NextApiRequest, res: NextApiResponse) {
     switch (req.method) {

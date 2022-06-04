@@ -1,7 +1,7 @@
 import { NextApiResponse } from "next";
 
 // Successful responses
-export default function ok(res: NextApiResponse, data: {}) {
+export function ok(res: NextApiResponse, data: {}) {
     res.status(200).json(data)
 }
 
