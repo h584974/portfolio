@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, getDoc, getDocs, setDoc, addDoc, updateDoc, doc, onSnapshot, query, where, orderBy, limit, collection } from 'firebase/firestore'
 import { getAuth, signInAnonymously as signInAnon, onAuthStateChanged as authStateChanged, signOut as logOut, Unsubscribe, NextOrObserver, User } from 'firebase/auth'
-import { getStorage, uploadBytes, getBlob } from 'firebase/storage'
+import { getStorage, uploadBytes, getBlob, ref, getDownloadURL } from 'firebase/storage'
 
 const config = {
     apiKey: "AIzaSyDMEA8cJbdvAAlqVGEEPLX34G4MOZ_FzSc",
@@ -65,3 +65,6 @@ export async function getSnakeHighScores() {
 }
 
 // Storage utility functions
+export async function getFileURL(fileref: string) {
+    return await getDownloadURL(ref(storage, fileref))
+}
