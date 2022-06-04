@@ -93,8 +93,7 @@ export type Text = {
 
     contact: {
         title: string,
-        firstNamePlaceholder: string;
-        lastNamePlaceholder: string,
+        namePlaceholder: string;
         emailPlaceholder: string,
         messagePlaceholder: string,
         sendMessage: string,

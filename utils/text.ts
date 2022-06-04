@@ -46,8 +46,7 @@ export const English: Text = {
 
     contact: {
         title: 'Contact Me',
-        firstNamePlaceholder: 'First Name',
-        lastNamePlaceholder: 'Last Name',
+        namePlaceholder: 'Name',
         emailPlaceholder: 'Email Address',
         messagePlaceholder: 'Message / Question',
         sendMessage: 'Send Message',
@@ -101,8 +100,7 @@ export const Norsk: Text = {
 
     contact: {
         title: 'Kontakt Meg',
-        firstNamePlaceholder: 'Fornavn',
-        lastNamePlaceholder: 'Etternavn',
+        namePlaceholder: 'Navn',
         emailPlaceholder: 'Epost Addresse',
         messagePlaceholder: 'Melding / Spørsmål',
         sendMessage: 'Send Melding',

@@ -9,7 +9,6 @@ export default function ContactForm() {
         e.preventDefault()
         const formElem = e.target
         const formData = new FormData(formElem)
-        formElem.reset()
         const form = Object.fromEntries(formData.entries())
         const res = await fetch('/api/contact', {
             method: 'POST',
@@ -19,6 +18,7 @@ export default function ContactForm() {
 
         if (res.status === 200) {
             alert(contact.success)
+            formElem.reset()
         }
         else {
             alert(contact.error)
@@ -33,15 +33,8 @@ export default function ContactForm() {
                         <h1>{contact.title}</h1>
                         <input
                             type='text'
-                            name='firstName'
-                            placeholder={contact.firstNamePlaceholder}
-                            required
-                        />
-                        <br />
-                        <input
-                            type='text'
-                            name='lastName'
-                            placeholder={contact.lastNamePlaceholder}
+                            name='name'
+                            placeholder={contact.namePlaceholder}
                             required
                         />
                         <br />
