@@ -1,10 +1,12 @@
 .icon {
+    --icon-w: calc(var(--header-height) / 2.2);
     background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
-    height: calc(var(--header-height) / 2.2);
-    width: calc((4 / 3) * var(--header-height) / 2.2);
+    height: var(--icon-w);
+    width: calc((4/3) * var(--icon-w));
     padding: 0;
+    box-shadow: none;
 }
 
 .no {

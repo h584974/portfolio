@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import { ok, badRequest, internalServerError, methodNotAllowed } from "../../utils/api"
-import { sendEmail } from "../../utils/email"
+import { NextApiRequest, NextApiResponse } from 'next'
+import { ok, badRequest, internalServerError, methodNotAllowed } from '../../utils/api'
+import { sendEmail } from '../../utils/email'
 
 export default async function Email(req: NextApiRequest, res: NextApiResponse) {
     switch (req.method) {
@@ -20,7 +20,7 @@ export default async function Email(req: NextApiRequest, res: NextApiResponse) {
 
             try {
                 await sendEmail('contact', 'Portfolio Contact Form Message', text)
-                ok(res, { message: 'Email Sent Successfully' })
+                ok(res, 'Email Sent Successfully')
             }
             catch (err) {
                 console.error(err)
