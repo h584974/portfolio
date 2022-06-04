@@ -148,19 +148,19 @@ export default function SnakeGame() {
                 break
             
             case Input.UP:
-                setDirection(Direction.UP)
+                setDirection( direction => direction === Direction.DOWN ? direction : Direction.UP)
                 break
 
             case Input.DOWN:
-                setDirection(Direction.DOWN)
+                setDirection( direction => direction === Direction.UP ? direction : Direction.DOWN)
                 break
 
             case Input.LEFT:
-                setDirection(Direction.LEFT)
+                setDirection( direction => direction === Direction.RIGHT ? direction : Direction.LEFT)
                 break
 
             case Input.RIGHT:
-                setDirection(Direction.RIGHT)
+                setDirection( direction => direction === Direction.LEFT ? direction : Direction.RIGHT)
                 break
         }
     }
