@@ -5,7 +5,7 @@ export default function Resume() {
     const { cvSrc, error } = useCV()
 
     return (
-        <div id='resumeContainer' className={Styles.container}>
+        <div id='cv' className={Styles.container}>
             <embed type='application/pdf' src={cvSrc}></embed>
         </div>
     )

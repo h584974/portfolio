@@ -3,8 +3,10 @@ import { Text } from './types'
 export const English: Text = {
     header: {
         home: 'HOME',
-        cv: 'CV',
+        about: 'ABOUT',
+        projects: 'PROJECTS',
         contact: 'CONTACT',
+        cv: 'CV',
         games: 'GAMES',
     },
 
@@ -58,8 +60,10 @@ export const English: Text = {
 export const Norsk: Text = {
     header: {
         home: 'HJEM',
-        cv: 'CV',
+        about: 'OM',
+        projects: 'PROSJEKTER',
         contact: 'KONTAKT',
+        cv: 'CV',
         games: 'SPILL',
     },
 

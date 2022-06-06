@@ -11,19 +11,19 @@ export default function Header() {
     const { header } = useText();
 
     function scrollToGames() {
-        setTimeout( () => document.getElementById('gamesContainer')?.scrollIntoView(), SCROLL_TIMEOUT)
+        setTimeout( () => document.getElementById('games')?.scrollIntoView(), SCROLL_TIMEOUT)
     }
 
-    function scrollToResume() {
-        setTimeout( () => document.getElementById('resumeContainer')?.scrollIntoView(), SCROLL_TIMEOUT)
+    function scrollToCV() {
+        setTimeout( () => document.getElementById('cv')?.scrollIntoView(), SCROLL_TIMEOUT)
     }
     
     return (
         <div className={Styles.container}>
             <div className={`${Styles.left} inverted`}>
                 <HomeMenu />
-                <a href='#contactContainer'>{header.contact}</a>
-                <Link href='/cv'><a onClick={scrollToResume}>{header.cv}</a></Link>
+                <a href='#contact'>{header.contact}</a>
+                <Link href='/cv'><a onClick={scrollToCV}>{header.cv}</a></Link>
                 <Link href='/games'><a onClick={scrollToGames}>{header.games}</a></Link>
             </div>
             <div className={`${Styles.right} inverted`}>
@@ -55,8 +55,8 @@ function HomeMenu() {
             <Link href='/'><a className={Styles.dropdown_button} onClick={scrollToHome}>{header.home}</a></Link>
             {open &&
                 <div className={Styles.dropdown_content}>
-                    <Link href='/'><a onClick={scrollToAbout}>About</a></Link>
-                    <Link href='/'><a onClick={scrollToProjects}>Projects</a></Link>
+                    <Link href='/'><a onClick={scrollToAbout}>{header.about}</a></Link>
+                    <Link href='/'><a onClick={scrollToProjects}>{header.projects}</a></Link>
                 </div>
             }
         </div>

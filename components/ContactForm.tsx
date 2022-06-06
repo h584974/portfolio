@@ -42,7 +42,7 @@ export default function ContactForm() {
     }
 
     return (
-        <div id='contactContainer' className={`${ViewStyles.section} ${ContactStyles.container} inverted`}>
+        <div id='contact' className={`${ViewStyles.section} ${ContactStyles.container} inverted`}>
             <p ref={msgRef} className={ContactStyles.message} hidden>Message was sent</p>
             <div className={ViewStyles.centered_text}>
                 <div className={ViewStyles.inline_left}>
