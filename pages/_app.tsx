@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import '../styles/dark.css'
 import '../styles/light.css'
 import type { AppProps } from 'next/app'
-import Header from '../components/Header'
+import Navbar from '../components/Navbar'
 import AppContextProvider from '../components/AppContextProvider'
 import Head from 'next/head'
 import ContactForm from '../components/ContactForm'
@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </style>
       </Head>
       <AppContextProvider>
-        <Header />
+        <Navbar />
         <main>
           <Component {...pageProps} />
           <ContactForm />

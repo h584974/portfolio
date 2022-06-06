@@ -59,18 +59,12 @@ main {
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: var(--max);
   background: transparent;
   margin-block: var(--scrollbar-width);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: var(--max);
-  background: var(--scrollbar-color);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background:var(--scrollbar-highlight-color);
 }
 
 a {

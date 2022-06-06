@@ -6,26 +6,24 @@ import { useText } from '../utils/hooks'
 export default function AboutMe() {
     const { about } = useText()
     return (
-        <div>
-            <div className={ViewStyles.grid_6}>
-                    <div className={ViewStyles.col_span_3}>
-                        <h2>{about.title}</h2>
-                        <p>{about.description}</p>
-                    </div>
-                    <div className={`${ViewStyles.col_span_3} ${ViewStyles.centered_v} ${ViewStyles.centered_h_mobile}`}>
-                        <div className={HomeStyles.portrait_container}>
-                        <Image
-                            className={`${HomeStyles.portrait} glass-clear`}
-                            src='/portrait.png'
-                            alt='Portrait'
-                            width={100}
-                            height={100}
-                            layout='responsive'
-                            priority
-                        />
-                        </div>
-                    </div>
+        <div className={ViewStyles.grid_6}>
+            <div className={ViewStyles.col_span_3}>
+                <h2>{about.title}</h2>
+                <p>{about.description}</p>
+            </div>
+            <div className={`${ViewStyles.col_span_3} ${ViewStyles.centered_v} ${ViewStyles.centered_h_mobile}`}>
+                <div className={HomeStyles.portrait_container}>
+                <Image
+                    className={`${HomeStyles.portrait} glass-clear`}
+                    src='/portrait.png'
+                    alt='Portrait'
+                    width={100}
+                    height={100}
+                    layout='responsive'
+                    priority
+                />
                 </div>
+            </div>
         </div>
     )
 }
