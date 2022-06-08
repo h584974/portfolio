@@ -9,6 +9,7 @@
     font-family: var(--ft-neutral);
     z-index: 1;
     --left-w: 80%;
+    --padding: .5rem;
 }
 
 .container :is(a, button):hover {
@@ -46,14 +47,18 @@
     margin-right: 10%;
 }
 
+:is(.right, .left) * {
+    padding-inline: var(--padding);
+    padding-block: calc(var(--padding) / 1.5);
+}
+
 .dropdown {
     position: relative;
     padding: 0;
-    --padding: .5rem;
 }
 
 .dropdown_button {
-    padding-block: 10%;
+    padding-block: calc(var(--padding) / 1.2);
 }
 
 .dropdown_content {
