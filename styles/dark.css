@@ -1,10 +1,10 @@
 /* Dark Variables */
 
 :root {
-    --bg-d: rgb(10, 20, 30);
-    --bg-d-inv: rgb(0, 75, 90);
+    --bg-d: rgb(10, 15, 30);
+    --bg-d-inv: rgb(25, 35, 55);
     --bg-glass-d: rgba(10, 20, 30, .9);
-    --bg-glass-d-inv: rgba(0, 75, 90, .9);
+    --bg-glass-d-inv: rgba(25, 35, 55, .9);
     --color-d: rgb(20, 190, 140);
     --color-d-inv: rgb(220, 240, 250);
     --color-ph-d: rgb(100,100,100);

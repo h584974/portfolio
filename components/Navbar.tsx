@@ -8,7 +8,7 @@ import ThemeToggle from './ThemeToggle'
 const SCROLL_TIMEOUT = 50
 
 export default function Header() {
-    const { header } = useText();
+    const { navbar } = useText();
 
     function scrollToGames() {
         setTimeout( () => document.getElementById('games')?.scrollIntoView(), SCROLL_TIMEOUT)
@@ -22,9 +22,9 @@ export default function Header() {
         <div className={Styles.container}>
             <div className={`${Styles.left} inverted`}>
                 <HomeMenu />
-                <a href='#contact'>{header.contact}</a>
-                <Link href='/cv'><a onClick={scrollToCV}>{header.cv}</a></Link>
-                <Link href='/games'><a onClick={scrollToGames}>{header.games}</a></Link>
+                <a href='#contact'>{navbar.contact}</a>
+                <Link href='/cv'><a onClick={scrollToCV}>{navbar.cv}</a></Link>
+                <Link href='/games'><a onClick={scrollToGames}>{navbar.games}</a></Link>
             </div>
             <div className={`${Styles.right} inverted`}>
                 <LanguageToggle />
@@ -35,7 +35,7 @@ export default function Header() {
 }
 
 function HomeMenu() {
-    const { header } = useText();
+    const { navbar } = useText();
     const [open, setOpen] = useState<boolean>(false)
 
     function scrollToHome() {
@@ -52,11 +52,11 @@ function HomeMenu() {
 
     return (
         <div className={`${Styles.dropdown} bg-glass`} onMouseEnter={ () => setOpen(true) } onMouseLeave={ () => setOpen(false) }>
-            <Link href='/'><a className={Styles.dropdown_button} onClick={scrollToHome}>{header.home}</a></Link>
+            <Link href='/'><a className={Styles.dropdown_button} onClick={scrollToHome}>{navbar.home}</a></Link>
             {open &&
                 <div className={Styles.dropdown_content}>
-                    <Link href='/'><a onClick={scrollToAbout}>{header.about}</a></Link>
-                    <Link href='/'><a onClick={scrollToProjects}>{header.projects}</a></Link>
+                    <Link href='/'><a onClick={scrollToAbout}>{navbar.about}</a></Link>
+                    <Link href='/'><a onClick={scrollToProjects}>{navbar.projects}</a></Link>
                 </div>
             }
         </div>

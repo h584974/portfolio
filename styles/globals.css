@@ -6,8 +6,8 @@
 
   --box-shadow: 1px 1px 4px var(--shadow-dark);
 
-  --header-height: 2.2rem;
-  --view-height: calc(100vh - var(--header-height));
+  --nav-height: 2.2rem;
+  --view-height: calc(100vh - var(--nav-height));
   --max: max(100vh, 100vw);
   --border-r: 1rem;
   --scrollbar-width: .8rem;
@@ -47,8 +47,8 @@ body {
 
 main {
   position: absolute;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height));
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
   width: 100vw;
   overflow: overlay;
   scroll-behavior: smooth;
@@ -118,7 +118,7 @@ button, input, textarea {
 
   :root {
    --fs: 13px;
-   --header-height: 3rem;
+   --nav-height: 3rem;
   }
 
 }

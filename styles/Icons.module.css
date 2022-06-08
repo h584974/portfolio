@@ -1,5 +1,5 @@
 .icon {
-    --icon-w: calc(var(--header-height) / 2.2);
+    --icon-w: calc(var(--nav-height) / 2.2);
     background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;

@@ -1,7 +1,7 @@
-import Styles from '../styles/Resume.module.css'
+import Styles from '../styles/CV.module.css'
 import { useCV } from '../utils/fetchers'
 
-export default function Resume() {
+export default function CV() {
     const { cvSrc, error } = useCV()
 
     return (

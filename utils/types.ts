@@ -58,7 +58,7 @@ export type Snake = Point2D[]
 export type Food = Point2D[]
 
 export type Text = {
-    header: {
+    navbar: {
         home: string,
         about: string,
         projects: string,

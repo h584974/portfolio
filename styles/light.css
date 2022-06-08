@@ -2,10 +2,10 @@
 
 :root {
     --bg-l: rgb(250, 250, 255);
-    --bg-l-inv: rgb(30, 30, 45);
+    --bg-l-inv: rgb(10, 15, 30);
     --bg-glass-l: rgba(250, 250, 255, .9);
-    --bg-glass-l-inv: rgba(30, 30, 45, .9);
-    --color-l: rgb(10, 10, 20);
+    --bg-glass-l-inv: rgba(10, 15, 30, .9);
+    --color-l: rgb(0, 0, 20);
     --color-l-inv: rgb(150, 190, 225);
     --color-ph-l: rgb(125, 125, 125);
     --color-ph-l-inv: rgb(100, 100, 100);

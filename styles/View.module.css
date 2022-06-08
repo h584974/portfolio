@@ -152,7 +152,19 @@
     height: 0;
     width: 100%;
     display: block;
-    margin-block: calc(100vh - var(header--height));
+    margin-block: calc(100vh - var(--nav-height));
+}
+
+.carousel {
+
+}
+
+.c_button {
+
+}
+
+.c_track_container {
+
 }
 
 @media (max-aspect-ratio: 5/6) {

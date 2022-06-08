@@ -1,7 +1,7 @@
 import { Text } from './types'
 
 export const English: Text = {
-    header: {
+    navbar: {
         home: 'HOME',
         about: 'ABOUT',
         projects: 'PROJECTS',
@@ -58,7 +58,7 @@ export const English: Text = {
 }
 
 export const Norsk: Text = {
-    header: {
+    navbar: {
         home: 'HJEM',
         about: 'OM',
         projects: 'PROSJEKTER',

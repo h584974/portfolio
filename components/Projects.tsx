@@ -2,7 +2,7 @@ import ViewStyles from '../styles/View.module.css'
 
 export default function Projects() {
     return (
-        <div id='projectsContainer' className={ViewStyles.grid_6}>
+        <div className={ViewStyles.grid_6}>
             <div className={ViewStyles.col_span_2}>
                 <h2>Projects</h2>
                 <p>Something about my projects...</p>
