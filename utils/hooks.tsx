@@ -22,7 +22,8 @@ export function useInterval(callback: () => any, initialInterval: number = 1000,
     active: boolean, 
     updateInterval: React.Dispatch<React.SetStateAction<number>>, 
     startInterval: () => void, 
-    stopInterval: () => void} 
+    stopInterval: () => void
+} 
 {
     const [trigger, setTrigger] = useState<{}>({ message: 'init' })
     const [interval, setInterval] = useState<number>(initialInterval)

@@ -45,6 +45,7 @@
 
 .right * {
     margin-right: 10%;
+    height: calc(var(--nav-height) / 1.5);
 }
 
 :is(.right, .left) * {
@@ -62,16 +63,16 @@
 }
 
 .dropdown_content {
+    --border-top-w: 4px;
     position: absolute;
     top: var(--nav-height);
-    width: min(400%, 80vw);
     margin: 0;
-    transform: translate(calc(0rem - var(--padding)), calc(0rem - var(--padding)));
+    transform: translate(calc(0rem - var(--padding)), calc(0rem - var(--padding) - var(--border-top-w)));
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    box-shadow: 1px 1px 1px black;
-    border: 1px solid black;
-    border-top: none;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--shadow-dark);
+    border-top: var(--border-top-w) solid var(--highlight-inv);
 }
 
 .dropdown_content > * {

@@ -1,12 +1,11 @@
 .icon {
-    --icon-w: calc(var(--nav-height) / 2.2);
     background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
-    height: var(--icon-w);
-    width: calc((4/3) * var(--icon-w));
+    aspect-ratio: 1/1;
     padding: 0;
     box-shadow: none;
+    border: none;
 }
 
 .no {
@@ -23,4 +22,12 @@
 
 .moon {
     background-image: url('../public/moon.svg');
+}
+
+.left {
+    background-image: url('../public/left.svg');
+}
+
+.right {
+    background-image: url('../public/right.svg');
 }

@@ -1,6 +1,4 @@
 import '../styles/globals.css'
-import '../styles/dark.css'
-import '../styles/light.css'
 import type { AppProps } from 'next/app'
 import Navbar from '../components/Navbar'
 import AppContextProvider from '../components/AppContextProvider'

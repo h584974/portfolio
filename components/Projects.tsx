@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import ViewStyles from '../styles/View.module.css'
+import Carousel from './Carousel'
 
 export default function Projects() {
     return (
@@ -7,11 +9,9 @@ export default function Projects() {
                 <h2>Projects</h2>
                 <p>Something about my projects...</p>
             </div>
-            <div className={ViewStyles.col_span_2}>
-                <h4>Picture</h4>
-            </div>
-            <div className={ViewStyles.col_span_2}>
-                <h4>Carousel?</h4>
+            <div className={ViewStyles.col_span_4}>
+                <h4>Carousel</h4>
+                
             </div>
         </div>
     )
