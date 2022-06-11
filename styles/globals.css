@@ -102,7 +102,7 @@ main {
 
 ::-webkit-scrollbar-track {
   background: transparent;
-  margin-block: var(--scrollbar-width);
+  margin-block: calc(var(--scrollbar-width) / 2);
 }
 
 ::-webkit-scrollbar-thumb {

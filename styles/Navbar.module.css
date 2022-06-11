@@ -9,7 +9,7 @@
     font-family: var(--ft-neutral);
     z-index: 1;
     --left-w: 80%;
-    --padding: .5rem;
+    --padding: .5em;
 }
 
 .container :is(a, button):hover {
@@ -67,7 +67,7 @@
     position: absolute;
     top: var(--nav-height);
     margin: 0;
-    transform: translate(calc(0rem - var(--padding)), calc(0rem - var(--padding) - var(--border-top-w)));
+    transform: translate(calc(0em - var(--padding)), calc(0em - var(--padding)));
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: var(--box-shadow);
