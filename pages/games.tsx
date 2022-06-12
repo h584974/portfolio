@@ -1,4 +1,4 @@
-import SnakeGame from '../components/SnakeGame'
+import SnakeGame from '../components/content/SnakeGame'
 import ViewStyles from '../styles/View.module.css'
 
 export default function Games() {

@@ -187,6 +187,7 @@ button:focus {
 
 ::placeholder {
   text-align: left;
+  color: var(--color-ph);
 }
 
 textarea {
@@ -228,10 +229,6 @@ button:hover {
 
 button:focus {
   border-color: var(--bg);
-}
-
-::placeholder {
-  color: var(--color);
 }
 
 a:hover {

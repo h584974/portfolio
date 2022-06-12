@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Context } from '../components/AppContextProvider'
+import { Context } from '../components/globals/AppContextProvider'
 import { English, Norsk } from './text';
 import { AppContext, Language, Text } from './types'
 

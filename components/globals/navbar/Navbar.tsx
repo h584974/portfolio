@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import Styles from '../styles/Navbar.module.css'
-import { useText } from '../utils/hooks'
+import Styles from '../../../styles/Navbar.module.css'
+import { useText } from '../../../utils/hooks'
 import LanguageToggle from './LanguageToggle'
 import ThemeToggle from './ThemeToggle'
 

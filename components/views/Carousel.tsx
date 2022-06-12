@@ -8,23 +8,6 @@ export default function Carousel({ children, slideshowSeconds }: { children: JSX
     const containerRef = useRef<HTMLDivElement>(null)
     const slidesRef = useRef<HTMLDivElement>(null)
 
-    useEffect(() => {
-        if (slideshowSeconds) {
-            const interval = setInterval(next, slideshowSeconds * 1_000)
-            return () => clearInterval(interval)
-        }
-    }, [])
-
-    useEffect( () => {
-        const width = getSlideWithPixels()
-        if (slidesRef.current) slidesRef.current.scrollLeft = currentIndex * (width + .75)
-    }, [currentIndex])
-
-    useEffect( () => {
-        const carousel = containerRef.current
-        if (carousel) new ResizeObserver(updateSlideWidth).observe(carousel)
-    }, [containerRef.current])
-
     const mainID = useId()
     const childrenIDs = children.map( (child, index) => {
         const id: string = `${mainID}-${index}`
@@ -33,6 +16,29 @@ export default function Carousel({ children, slideshowSeconds }: { children: JSX
             id
         }
     })
+
+    useEffect(() => {
+        if (slideshowSeconds) {
+            const interval = setInterval(next, slideshowSeconds * 1_000)
+            return () => clearInterval(interval)
+        }
+    }, [])
+
+    useEffect( () => {
+        /*const width = getSlideWithPixels()
+        if (slidesRef.current) slidesRef.current.scrollLeft = currentIndex * (width + .75)*/
+
+        const { id } = childrenIDs[currentIndex]
+        const slide = slidesRef.current?.querySelector<HTMLDivElement>(`div[id='${id}'`)
+        const offset = slide?.offsetLeft
+        offset ? slidesRef.current?.scroll(offset, 0) : slidesRef.current?.scroll(0, 0)
+        console.log("no way??");
+    }, [currentIndex])
+
+    useEffect( () => {
+        const carousel = containerRef.current
+        if (carousel) new ResizeObserver(updateSlideWidth).observe(carousel)
+    }, [containerRef.current])
 
     function next() {
         setCurrentIndex( index => (index + 1) % children.length )

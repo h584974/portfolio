@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import ViewStyles from '../styles/View.module.css'
-import Carousel from './views/Carousel'
+import ViewStyles from '../../styles/View.module.css'
+import Carousel from '../views/Carousel'
 
 export default function Projects() {
     return (

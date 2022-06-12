@@ -1,7 +1,6 @@
-import { NextOrObserver } from "firebase/auth";
-import { createContext, useEffect, useState } from "react";
-import { getDocumentData, onAuthStateChanged, onDocumentChanged, signInAnonymously } from "../services/firebase";
-import { Theme, AppContext, Language, User, AuthUser, DbUser } from "../utils/types";
+import { createContext, useEffect, useState } from 'react';
+import { onAuthStateChanged, onDocumentChanged, signInAnonymously } from '../../services/firebase';
+import { Theme, AppContext, Language, User, AuthUser, DbUser } from '../../utils/types';
 
 export const Context = createContext<AppContext>({
     theme: Theme.LIGHT,

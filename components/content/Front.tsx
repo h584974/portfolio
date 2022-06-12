@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import HomeStyles from '../styles/Home.module.css'
-import { useAppContext, useText, useInterval } from '../utils/hooks'
+import HomeStyles from '../../styles/Home.module.css'
+import { useAppContext, useText, useInterval } from '../../utils/hooks'
 
 export default function Front() {
     const { front } = useText()

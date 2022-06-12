@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import HomeStyles from '../styles/Home.module.css'
-import ViewStyles from '../styles/View.module.css'
-import { useText } from '../utils/hooks'
+import HomeStyles from '../../styles/Home.module.css'
+import ViewStyles from '../../styles/View.module.css'
+import { useText } from '../../utils/hooks'
 
 export default function AboutMe() {
     const { about } = useText()

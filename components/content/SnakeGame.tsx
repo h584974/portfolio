@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { onCollectionChanged, setDocument, updateDocument } from '../services/firebase'
-import SnakeStyles from '../styles/Snake.module.css'
-import ViewStyles from '../styles/View.module.css'
-import { useAppContext, useInterval, useText } from '../utils/hooks'
-import { Direction, Food, Input, Point2D, Snake, Theme } from '../utils/types'
-import { updateUsername } from '../utils/user'
+import { onCollectionChanged, setDocument, updateDocument } from '../../services/firebase'
+import SnakeStyles from '../../styles/Snake.module.css'
+import ViewStyles from '../../styles/View.module.css'
+import { useAppContext, useInterval, useText } from '../../utils/hooks'
+import { Direction, Food, Input, Point2D, Snake, Theme } from '../../utils/types'
+import { updateUsername } from '../../utils/user'
 
 // Constants
 const GRID_SIZE = 40

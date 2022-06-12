@@ -2,7 +2,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    --offset: 5px;
+    --offset: 4px;
 }
 
 .track {
@@ -10,8 +10,8 @@
     height: var(--main-h);
     width: 100%;
     height: 100%;
-    border-radius: calc(var(--offset) * 2);
-    border: var(--offset) solid var(--bg);
+    border-radius: var(--offset);
+    border: calc(var(--offset) / 2) solid var(--bg);
 }
 
 .nav {
@@ -73,7 +73,7 @@
     left: var(--offset);
 }
 
-:is(.next, .prev) * {
+:is(.next, .prev) > * {
     border-radius: 0;
     border: none;
     height: 8%;

@@ -1,9 +1,9 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Navbar from '../components/Navbar'
-import AppContextProvider from '../components/AppContextProvider'
+import Navbar from '../components/globals/navbar/Navbar'
+import AppContextProvider from '../components/globals/AppContextProvider'
 import Head from 'next/head'
-import ContactForm from '../components/ContactForm'
+import ContactForm from '../components/globals/ContactForm'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -1,5 +1,5 @@
-import ViewStyles from '../styles/View.module.css'
-import { useText } from '../utils/hooks'
+import ViewStyles from '../../styles/View.module.css'
+import { useText } from '../../utils/hooks'
 
 export default function Skills() {
     const { skills } = useText()

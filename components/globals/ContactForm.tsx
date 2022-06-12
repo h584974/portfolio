@@ -1,6 +1,6 @@
-import ViewStyles from '../styles/View.module.css'
-import ContactStyles from '../styles/Contact.module.css'
-import { useText } from '../utils/hooks'
+import ViewStyles from '../../styles/View.module.css'
+import ContactStyles from '../../styles/Contact.module.css'
+import { useText } from '../../utils/hooks'
 import { useRef } from 'react'
 
 const MESSAGE_TIMEOUT = 10_000 // ms
