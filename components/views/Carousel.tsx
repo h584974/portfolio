@@ -3,8 +3,6 @@ import CStyles from '../../styles/Carousel.module.css'
 import IStyles from '../../styles/Icons.module.css'
 
 export default function Carousel({ children, slideshowSeconds }: { children: JSX.Element[], slideshowSeconds?: number }) {
-    if (!children) return <></>
-
     const [slideWidth, setSlideWidth] = useState<string>('100%')
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -60,6 +58,8 @@ export default function Carousel({ children, slideshowSeconds }: { children: JSX
         const width = carousel ? window.getComputedStyle(carousel).width : '0'
         return parseInt(width)
     }
+
+    if (!children) return <></>
 
     return (
         <div className={CStyles.container} ref={containerRef}>

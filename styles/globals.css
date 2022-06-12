@@ -67,6 +67,50 @@
   color: var(--color);
 }
 
+.light .inverted {
+  --bg-inv: rgb(250, 250, 255);
+  --bg: rgb(10, 15, 30);
+  --bg-glass-inv: rgba(250, 250, 255, .9);
+  --bg-glass: rgba(10, 15, 30, .9);
+  --color-inv: rgb(0, 0, 20);
+  --color: rgb(150, 190, 225);
+  --color-ph-inv: rgb(125, 125, 125);
+  --color-ph: rgb(100, 100, 100);
+  --color-scroll-inv: rgb(30, 210, 240);
+  --color-scroll: rgb(15,200,210);
+  --highlight-inv: rgb(223, 23, 66);
+  --highlight: rgb(200, 50, 100);
+  --glass-clear-inv: rgba(0, 0, 0, .15);
+  --glass-foggy-inv: rgba(0, 0, 0, .30);
+  --glass-clear: rgba(255, 255, 255, .15);
+  --glass-foggy: rgba(255, 255, 255, .30);
+
+  background-color: var(--bg);
+  color: var(--color);
+}
+
+.dark .inverted {
+  --bg-inv: rgb(10, 15, 30);
+  --bg: rgb(25, 35, 55);
+  --bg-glass-inv: rgba(10, 20, 30, .9);
+  --bg-glass: rgba(25, 35, 55, .9);
+  --color-inv: rgb(20, 190, 140);
+  --color: rgb(220, 240, 250);
+  --color-ph-inv: rgb(100,100,100);
+  --color-ph: rgb(125,125,125);
+  --color-scroll-inv: rgb(60,200,230);
+  --color-scroll: rgb(125,240,255);
+  --highlight-inv: rgb(150, 255, 0);
+  --highlight: rgb(20, 230, 255);
+  --glass-clear-inv: rgba(255, 255, 255, .15);
+  --glass-foggy-inv: rgba(255, 255, 255, .30);
+  --glass-clear: rgba(0, 0, 0, .15);
+  --glass-foggy: rgba(0, 0, 0, .30);
+
+  background-color: var(--bg);
+  color: var(--color);
+}
+
 html,
 body {
   padding: 0;
@@ -192,48 +236,6 @@ button:focus {
 
 a:hover {
   color: var(--highlight);
-}
-
-.inverted {
-  background-color: var(--bg-inv);
-  color: var(--color-inv);
-}
-
-.inverted ::-webkit-scrollbar-thumb {
-  background-color: var(--color-scroll-inv);
-}
-
-.inverted ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-scroll);
-}
-
-.inverted input {
-  border-color: var(--color-inv);
-}
-
-.inverted textarea {
-  border-color: var(--color-inv);
-}
-
-.inverted button {
-  background-color: var(--bg);
-  color: var(--color);
-}
-
-.inverted button:hover {
-  color: var(--highlight);
-}
-
-.inverted button:focus {
-  border-color: var(--bg-inv);
-}
-
-.inverted ::placeholder {
-  color: var(--color-ph-inv);
-}
-
-.inverted a:hover {
-  color: var(--highlight-inv);
 }
 
 @media (max-width: 768px) {
