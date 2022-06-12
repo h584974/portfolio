@@ -2,6 +2,7 @@
     position: relative;
     height: 100%;
     width: 100%;
+    --offset: 5px;
 }
 
 .track {
@@ -9,8 +10,8 @@
     height: var(--main-h);
     width: 100%;
     height: 100%;
-    border-radius: 5px;
-    border: 2px solid var(--bg);
+    border-radius: calc(var(--offset) * 2);
+    border: var(--offset) solid var(--bg);
 }
 
 .nav {
@@ -60,8 +61,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: var(--offset);
     background-color: transparent;
-    --offset: 4px;
 }
 
 .next {
@@ -75,7 +76,7 @@
 :is(.next, .prev) * {
     border-radius: 0;
     border: none;
-    height: 50px;
+    height: 8%;
     background-color: transparent;
 }
 
