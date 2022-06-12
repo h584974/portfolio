@@ -133,6 +133,7 @@ button {
 
 button:hover, a:hover {
   transform: scale(1.03);
+  cursor: pointer;
 }
 
 button:focus {

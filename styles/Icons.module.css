@@ -8,6 +8,11 @@
     border: none;
 }
 
+.icon:focus {
+    box-shadow: none;
+    border: none;
+}
+
 .no {
     background-image: url('../public/no.svg');
 }
