@@ -2,14 +2,16 @@ import { useEffect, useId, useRef, useState } from 'react'
 import CStyles from '../../styles/Carousel.module.css'
 import IStyles from '../../styles/Icons.module.css'
 
+const DEFAULT_WIDTH = '300px'
+
 export default function Carousel({ children, slideshowSeconds }: { children: JSX.Element[], slideshowSeconds?: number }) {
-    const [slideWidth, setSlideWidth] = useState<string>('100%')
+    const [slideWidth, setSlideWidth] = useState<string>(DEFAULT_WIDTH)
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const containerRef = useRef<HTMLDivElement>(null)
     const slidesRef = useRef<HTMLDivElement>(null)
 
     const mainID = useId()
-    const childrenIDs = children.map( (child, index) => {
+    const childrenIDs = !children ? [{ child: <></>, id: '0' }] : children.map( (child, index) => {
         const id: string = `${mainID}-${index}`
         return {
             child,
@@ -18,21 +20,17 @@ export default function Carousel({ children, slideshowSeconds }: { children: JSX
     })
 
     useEffect(() => {
-        if (slideshowSeconds) {
+        if (children && slideshowSeconds) {
             const interval = setInterval(next, slideshowSeconds * 1_000)
             return () => clearInterval(interval)
         }
     }, [])
 
     useEffect( () => {
-        /*const width = getSlideWithPixels()
-        if (slidesRef.current) slidesRef.current.scrollLeft = currentIndex * (width + .75)*/
-
         const { id } = childrenIDs[currentIndex]
         const slide = slidesRef.current?.querySelector<HTMLDivElement>(`div[id='${id}'`)
         const offset = slide?.offsetLeft
         offset ? slidesRef.current?.scroll(offset, 0) : slidesRef.current?.scroll(0, 0)
-        console.log("no way??");
     }, [currentIndex])
 
     useEffect( () => {
@@ -54,15 +52,9 @@ export default function Carousel({ children, slideshowSeconds }: { children: JSX
 
     function updateSlideWidth() {
         const carousel = containerRef.current
-        const width = carousel ? window.getComputedStyle(carousel).width : '100%'
+        const width = carousel ? window.getComputedStyle(carousel).width : DEFAULT_WIDTH
         setSlideWidth(width)
         setCurrentIndex(0)
-    }
-
-    function getSlideWithPixels() {
-        const carousel = containerRef.current
-        const width = carousel ? window.getComputedStyle(carousel).width : '0'
-        return parseInt(width)
     }
 
     if (!children) return <></>

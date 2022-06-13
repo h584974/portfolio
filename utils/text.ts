@@ -36,6 +36,15 @@ export const English: Text = {
         technologies: 'Languages / Frameworks',
     },
 
+    projects: {
+        title: 'Projects',
+        project1: {
+            title: 'HEQED House',
+            description: `HEQED is an international research project with the goal of increasing health equity thorugh education. HEQED House 
+                is a sub-project within HEQED which attempts to aid this goal by using technology.`,
+        },
+    },
+
     snake: {
         score: 'Score',
         highScore: 'High Score',
@@ -90,6 +99,15 @@ export const Norsk: Text = {
             Jeg har spesielt funnet mye glede av å drive med web utvikling i Next.JS, TypeScript og React. Denne nettsiden er laget med 
             bruk av disse teknologiene.`,
         technologies: 'Språk / Rammeverk'
+    },
+
+    projects: {
+        title: 'Prosjekter',
+        project1: {
+            title: 'HEQED House',
+            description: `HEQED er et internasjonalt forskningsprosjekt med målet å øke likeverd innen helse gjennom utdanning. HEQED House 
+                er et underprojsket innen HEQED som prøver å hjelpe mot dette målet ved bruk av teknologi.`,
+        },
     },
 
     snake: {

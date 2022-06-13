@@ -83,6 +83,14 @@ export type Text = {
         technologies: string,
     },
 
+    projects: {
+        title: string,
+        project1: {
+            title: string,
+            description: string,
+        },
+    },
+
     snake: {
         score: string,
         highScore: string,

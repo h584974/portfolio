@@ -95,3 +95,7 @@
 .slide > * {
     all: inherit;
 }
+
+.slide img {
+    object-fit: cover;
+}
