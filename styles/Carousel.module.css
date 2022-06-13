@@ -80,6 +80,10 @@
     background-color: transparent;
 }
 
+:is(.next, .prev) > *:hover {
+    transform: scale(1.1);
+}
+
 .slides {
     display: flex;
     overflow: hidden;

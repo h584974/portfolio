@@ -15,8 +15,9 @@
     padding-inline: 8%;
 }
 
-.section_inner {
+.page {
     width: 100%;
+    min-height: var(--view-height);
 }
 
 .inline_left {
