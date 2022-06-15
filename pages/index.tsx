@@ -4,24 +4,27 @@ import Projects from '../components/content/Projects'
 import Skills from '../components/content/Skills'
 import HomeStyles from '../styles/Home.module.css'
 import ViewStyles from '../styles/View.module.css'
-import { useText } from '../utils/hooks'
 
 export default function Home() {
-    const Text = useText()
-
     return (
         <div id='home' className={HomeStyles.container}>
-            <div className={`${ViewStyles.section_full} ${ViewStyles.centered}`}>
+            <div className={ViewStyles.section_full}>
+                <div className={ViewStyles.content}>
                 <Front />
+                </div>
             </div>
 
-            <div id='about' className={`${ViewStyles.section_full} ${ViewStyles.centered_v}`}>
+            <div id='about' className={ViewStyles.section_full}>
+                <div className={ViewStyles.content}>
                 <AboutMe />
                 <Skills />
+                </div>
             </div >
 
-            <div id='projects' className={`${ViewStyles.section_full} ${ViewStyles.centered_v}`}>
+            <div id='projects' className={ViewStyles.section_full}>
+                <div className={ViewStyles.content}>
                 <Projects />
+                </div>
             </div>
         </div>
     )

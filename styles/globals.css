@@ -242,4 +242,13 @@ a:hover {
    --nav-height: 3rem;
   }
 
+  div.mobile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  div.mobile-grid > * {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
 }

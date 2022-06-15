@@ -2,14 +2,15 @@
     position: relative;
     height: 100%;
     width: 100%;
-    --offset: 4px;
+    aspect-ratio: inherit;
+    --offset: 2px;
 }
 
 .track {
     overflow-x: hidden;
-    height: var(--main-h);
     width: 100%;
     height: 100%;
+    aspect-ratio: inherit;
     border-radius: var(--offset);
     border: calc(var(--offset) / 2) solid var(--bg);
 }
@@ -20,18 +21,19 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    height: 2rem;
+    height: clamp(1.2rem, 6%, 1.8rem);
     width: 100%;
     background-color: transparent;
 }
 
 .nav > * {
-    margin-inline: 0.75%;
+    height: 50%;
+    aspect-ratio: 1/1;
     border: none;
     background-color: rgb(125, 125, 125);
-    margin-inline: 1%;
+    margin-inline: .6rem;
 }
+
 
 .nav > *:hover {
     background-color: rgb(90, 90, 90);
@@ -76,12 +78,12 @@
 :is(.next, .prev) > * {
     border-radius: 0;
     border: none;
-    height: 8%;
+    height: 6%;
     background-color: transparent;
 }
 
 :is(.next, .prev) > *:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .slides {
@@ -102,4 +104,12 @@
 
 .slide img {
     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 90vw;
+    }
+
 }

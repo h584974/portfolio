@@ -1,33 +1,29 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import HomeStyles from '../../styles/Home.module.css'
-import { useAppContext, useText, useInterval } from '../../utils/hooks'
+import { useText } from '../../utils/hooks'
 
 export default function Front() {
     const { front } = useText()
-    const { theme } = useAppContext()
     const descRef = useRef<HTMLHeadingElement>(null)
     const frontRef = useRef<HTMLDivElement>(null)
-    const [color, setColor] = useState<string>('black')
-    useInterval(blink, 400, true)
 
     useEffect( () => {
-        const front = frontRef.current
-        const styles = front ? window.getComputedStyle(front) : null
-        const col = styles?.color;
-        if (col) setColor(col)
-    }, [theme])
+        const interval = setInterval(blink, 400)
+        return () => clearInterval(interval)
+    }, [])
 
     function blink() {
-        const desc: HTMLHeadingElement | null = document.querySelector('h3[id="desc"]')
-        const val = desc?.style.getPropertyValue('--bg-after')
-        desc?.style.setProperty('--bg-after', val === 'transparent' ? color : 'transparent')
+        const frontElem = frontRef.current
+        const styles = frontElem ? window.getComputedStyle(frontElem) : null
+        const color = styles?.color ?? 'black';
+        const val = descRef.current?.style.getPropertyValue('--bg-after')
+        descRef.current?.style.setProperty('--bg-after', val === 'transparent' ? color : 'transparent')
     }
 
     return (
-        <div className={HomeStyles.front}>
+        <div className={HomeStyles.front} ref={frontRef}>
             <h1 className={HomeStyles.name}>{front.name}</h1>
             <h3 
-                id='desc'
                 className={HomeStyles.description}
                 ref={descRef}
                 style={{animationTimingFunction: `steps(${front.description.length})`}}

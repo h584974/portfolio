@@ -4,7 +4,7 @@ import { useText } from '../../utils/hooks'
 export default function Skills() {
     const { skills } = useText()
     return (
-        <div className={ViewStyles.grid_6}>
+        <div className={`${ViewStyles.grid_6} mobile-grid`}>
             <div className={`${ViewStyles.start_4} ${ViewStyles.end_7}`}>
                 <h2>{skills.title}</h2>
                 <p>{skills.description}</p>

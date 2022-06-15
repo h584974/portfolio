@@ -7,7 +7,7 @@
     }
 
 .front {
-    font-size: 1.0rem;
+    text-align: center;
 }
 
     .front h1 {
@@ -16,6 +16,7 @@
 
     .front h3 {
         font-family: var(--ft-mono);
+        margin: auto;
     }
 
 .name {

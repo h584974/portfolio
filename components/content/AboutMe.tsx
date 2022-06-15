@@ -6,7 +6,7 @@ import { useText } from '../../utils/hooks'
 export default function AboutMe() {
     const { about } = useText()
     return (
-        <div className={ViewStyles.grid_6}>
+        <div className={`${ViewStyles.grid_6} mobile-grid`}>
             <div className={ViewStyles.col_span_3}>
                 <h2>{about.title}</h2>
                 <p>{about.description}</p>
