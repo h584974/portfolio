@@ -26,6 +26,17 @@ export default function Carousel({ children, slideshowSeconds, followParent = tr
     })
 
     useEffect(() => {
+        const carousel = containerRef.current
+        if (carousel) {
+            new ResizeObserver(() => {
+                const carousel = containerRef.current
+                const width = carousel ? window.getComputedStyle(carousel).width : DEFAULT_WIDTH
+                setSlideWidth(width)
+                setCurrentIndex(0)
+            })
+            .observe(carousel)
+        }
+
         if (slideshowSeconds) {
             const interval = setInterval(next, slideshowSeconds * 1_000)
             return () => clearInterval(interval)
@@ -39,11 +50,6 @@ export default function Carousel({ children, slideshowSeconds, followParent = tr
         offset ? slidesRef.current?.scroll(offset, 0) : slidesRef.current?.scroll(0, 0)
     }, [currentIndex])
 
-    useEffect( () => {
-        const carousel = containerRef.current
-        if (carousel) new ResizeObserver(updateSlideWidth).observe(carousel)
-    }, [containerRef.current])
-
     function next() {
         setCurrentIndex( index => (index + 1) % childrenArr.length )
     }
@@ -54,13 +60,6 @@ export default function Carousel({ children, slideshowSeconds, followParent = tr
             if (i < 0) i = childrenArr.length - 1
             return i
         })
-    }
-
-    function updateSlideWidth() {
-        const carousel = containerRef.current
-        const width = carousel ? window.getComputedStyle(carousel).width : DEFAULT_WIDTH
-        setSlideWidth(width)
-        setCurrentIndex(0)
     }
 
     if (!children) return <></>
