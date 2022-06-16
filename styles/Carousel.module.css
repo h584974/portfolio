@@ -105,11 +105,3 @@
 .slide img {
     object-fit: cover;
 }
-
-@media (max-width: 768px) {
-
-    .container {
-        max-width: 90vw;
-    }
-
-}

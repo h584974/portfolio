@@ -11,9 +11,9 @@ const DEFAULT_WIDTH = '300px'
 
 export default function Carousel({ children, slideshowSeconds, followParent = true }: { children: JSX.Element | JSX.Element[], slideshowSeconds?: number, followParent?: boolean }) {
     const carouselID = useId()
-    const [slideWidth, setSlideWidth] = useState<string>(DEFAULT_WIDTH)
+    const [width, setWidth] = useState<string>(DEFAULT_WIDTH)
     const [currentIndex, setCurrentIndex] = useState<number>(0)
-    const containerRef = useRef<HTMLDivElement>(null)
+    const carouselRef = useRef<HTMLDivElement>(null)
     const slidesRef = useRef<HTMLDivElement>(null)
 
     const childrenArr: JSX.Element[] = !children ? [] : !(children as JSX.Element).type ? children as JSX.Element[] : [(children as JSX.Element)]
@@ -26,12 +26,12 @@ export default function Carousel({ children, slideshowSeconds, followParent = tr
     })
 
     useEffect(() => {
-        const carousel = containerRef.current
+        const carousel = carouselRef.current
         if (carousel) {
             new ResizeObserver(() => {
-                const carousel = containerRef.current
-                const width = carousel ? window.getComputedStyle(carousel).width : DEFAULT_WIDTH
-                setSlideWidth(width)
+                const parent = carouselRef.current?.parentElement
+                const width = parent ? window.getComputedStyle(parent).width : DEFAULT_WIDTH
+                setWidth(width)
                 setCurrentIndex(0)
             })
             .observe(carousel)
@@ -65,10 +65,10 @@ export default function Carousel({ children, slideshowSeconds, followParent = tr
     if (!children) return <></>
 
     return (
-        <div className={CStyles.container} ref={containerRef}>
+        <div className={CStyles.container} style={{ width }} ref={carouselRef}>
             <div className={CStyles.track}>
                 <div className={CStyles.slides} ref={slidesRef}>
-                    {childRefs.map( ({ child, id }) => <div style={{width: slideWidth}} className={CStyles.slide} id={id} key={`slide-${id}`}>{child}</div> )}
+                    {childRefs.map( ({ child, id }) => <div style={{ width }} className={CStyles.slide} id={id} key={`slide-${id}`}>{child}</div> )}
                 </div>
             </div>
             <div className={CStyles.nav}>
