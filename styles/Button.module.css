@@ -1,0 +1,95 @@
+.ripple {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: background 350ms;
+
+  --animation-duration: 700ms;
+  --ripple-color: currentColor;
+  --ripple-strength: .8;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%) scale(0);
+  width: 225%;
+  aspect-ratio: 1/1;
+  z-index: -1;
+  border-radius: 100vmax;
+  background: radial-gradient(circle, transparent 20%, var(--ripple-color));
+  opacity: var(--ripple-strength);
+}
+
+.ripple_effect::after {
+  animation: ripple var(--animation-duration) linear forwards;
+}
+
+@keyframes ripple {
+  75% {
+    opacity: var(--ripple-strength);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.neon {
+  position: relative;
+  background-color: transparent;
+  border: .125em solid currentColor;
+  text-shadow:
+    0 0 .15em rgba(255, 255, 255, .3),
+    0 0 .5em currentColor;
+  
+  box-shadow: 
+    inset 0 0 .5em 0 currentColor,
+    0 0 .75em currentColor;
+
+  --trs: 100ms;
+  transition: box-shadow var(--trs);
+}
+
+.neon:hover {
+  border: .125em solid currentColor;
+  text-shadow:
+    0 0 .1em rgba(255, 255, 255, .3),
+    0 0 .2em currentColor;
+  
+  box-shadow: 
+    inset 0 0 .8em 0 currentColor,
+    0 0 1em currentColor;
+}
+
+.neon:active {
+  background-color: currentColor;
+  text-shadow: 0 0 3px black;
+  box-shadow: 0 0 2em currentColor;
+}
+
+.neon::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0 0 0 0;
+  background-color: currentColor;
+  transform: translateY(120%) perspective(1em) rotateX(40deg) scale(1, .35);
+  filter: blur(1.5em);
+  opacity: .75;
+  transition: opacity var(--trs);
+}
+
+.neon:hover::after {
+  opacity: .85;
+  filter: blur(1.2em);
+  transform: translateY(120%) perspective(1em) rotateX(40deg) scale(1, .4);
+}
+
+.neon:active::after {
+  opacity: .9;
+  filter: blur(1em);
+  transform: translateY(120%) perspective(1em) rotateX(40deg) scale(1.1, .45);
+}

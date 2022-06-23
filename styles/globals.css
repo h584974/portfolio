@@ -1,16 +1,11 @@
 :root {
-  --shadow-light: rgba(255, 255, 255, .5);
-  --shadow-dark: rgba(0, 0, 0, .5);
-
-  --box-shadow: 1px 1px 4px var(--shadow-dark);
-
   --nav-height: 2.2rem;
   --view-height: calc(100vh - var(--nav-height));
   --max: max(100vh, 100vw);
   --border-r: 1rem;
   --scrollbar-width: .6rem;
 
-  --transission: .2s;
+  --trs: 200ms;
 
   --ft-signature: 'Kaushan Script', cursive;
   --ft-title: 'Oleo Script', cursive;
@@ -40,6 +35,8 @@
   --glass-foggy: rgba(0, 0, 0, .30);
   --glass-clear-inv: rgba(255, 255, 255, .15);
   --glass-foggy-inv: rgba(255, 255, 255, .30);
+  --shadow: rgba(0, 0, 0, .7);
+  --shadow-inv: rgba(255, 255, 255, .7);
 
   background-color: var(--bg);
   color: var(--color);
@@ -62,6 +59,8 @@
   --glass-foggy: rgba(255, 255, 255, .30);
   --glass-clear-inv: rgba(0, 0, 0, .15);
   --glass-foggy-inv: rgba(0, 0, 0, .30);
+  --shadow: rgba(150, 150, 150, .7);
+  --shadow-inv: var(--shadow);
 
   background-color: var(--bg);
   color: var(--color);
@@ -84,6 +83,8 @@
   --glass-foggy-inv: rgba(0, 0, 0, .30);
   --glass-clear: rgba(255, 255, 255, .15);
   --glass-foggy: rgba(255, 255, 255, .30);
+  --shadow-inv: rgba(0, 0, 0, .7);
+  --shadow: rgba(255, 255, 255, .7);
 
   background-color: var(--bg);
   color: var(--color);
@@ -106,6 +107,8 @@
   --glass-foggy-inv: rgba(255, 255, 255, .30);
   --glass-clear: rgba(0, 0, 0, .15);
   --glass-foggy: rgba(0, 0, 0, .30);
+  --shadow-inv: rgba(150, 150, 150, .7);
+  --shadow: var(--shadow-inv);
 
   background-color: var(--bg);
   color: var(--color);
@@ -157,32 +160,29 @@ a {
   text-decoration: none;
 }
 
-a:hover, a:focus, button:hover, button:focus {
-  transition: var(--transission);
+a, button {
+  transition: color var(--trs), box-shadow var(--trs);
 }
 
 button, input {
-  border-radius: var(--max);
-  border-style: solid;
-  border-width: 2px;
+  border-radius: 100vmax;
   padding: .5rem;
 }
 
 button {
-  border-top-color: var(--shadow-light);
-  border-left-color: var(--shadow-light);
-  border-bottom-color: var(--shadow-dark);
-  border-right-color: var(--shadow-dark);
+  border: none;
+  box-shadow: 0 0 2px var(--shadow-dark);
+  background-color: var(--bg-inv);
+  color: var(--color-inv);
+}
+
+button:hover {
+  box-shadow: 0 0 5px var(--shadow);
+  color: var(--highlight-inv);
 }
 
 button:hover, a:hover {
-  transform: scale(1.03);
   cursor: pointer;
-}
-
-button:focus {
-  border: 1px solid black;
-  transform: scale(1);
 }
 
 ::placeholder {
@@ -199,7 +199,8 @@ textarea {
 }
 
 button, input, textarea {
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 0 3px var(--shadow);
+  outline: none;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -211,24 +212,13 @@ button, input, textarea {
 }
 
 input {
-  border-color: var(--color);
+  border-color: currentColor;
+  border-style: solid;
+  border-width: 2px;
 }
 
 textarea {
-  border-color: var(--color);
-}
-
-button {
-  background-color: var(--bg-inv);
-  color: var(--color-inv);
-}
-
-button:hover {
-  color: var(--highlight-inv);
-}
-
-button:focus {
-  border-color: var(--bg);
+  border-color: currentColor;
 }
 
 a:hover {

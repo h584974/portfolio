@@ -8,7 +8,6 @@ export default function ThemeToggle() {
         <button 
             onClick={toggleTheme} 
             className={`${Styles.icon} ${theme === Theme.LIGHT ? Styles.sun : Styles.moon}`} 
-            style={{backgroundColor: 'transparent'}}
         />
     )
 }

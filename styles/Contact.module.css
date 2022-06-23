@@ -24,6 +24,10 @@
     max-width: 100%;
 }
 
+.form > button {
+    color: var(--highlight-inv);
+}
+
 .message {
     position: absolute;
     left: 0;

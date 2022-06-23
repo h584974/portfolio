@@ -5,6 +5,7 @@ import ViewStyles from '../../styles/View.module.css'
 import { useAppContext, useInterval, useText } from '../../utils/hooks'
 import { Direction, Food, Input, Point2D, Snake, Theme } from '../../utils/types'
 import { updateUsername } from '../../utils/user'
+import { RippleButton } from '../views/Buttons'
 
 // Constants
 const GRID_SIZE = 40
@@ -215,7 +216,7 @@ export default function SnakeGame() {
                                 minLength={1}
                                 required
                             />
-                            <button type="submit">{Text.snake.usernameSubmit}</button>
+                            <RippleButton type="submit">{Text.snake.usernameSubmit}</RippleButton>
                         </form>
                     </li>
                     <br />
