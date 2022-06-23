@@ -67,7 +67,7 @@
     position: absolute;
     top: var(--nav-height);
     margin: 0;
-    transform: translate(calc(0em - var(--padding)), calc(0em - var(--padding)));
+    transform: translate(calc(0em - var(--padding) / 2), calc(0em - var(--padding)));
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: var(--box-shadow);
@@ -80,8 +80,4 @@
     margin: 0;
     padding: var(--padding);
     background: transparent;
-}
-
-.dropdown_content > a:hover {
-    transform: scale(1.03) translate(2px);
 }

@@ -1,11 +1,12 @@
 .icon {
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    aspect-ratio: 1/1;
-    padding: 0;
-    box-shadow: none;
-    border: none;
+    background-size: contain !important;
+    background-position: 50% !important;
+    background-repeat: no-repeat !important;
+    aspect-ratio: 1/1 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background-color: transparent !important;
 }
 
 .icon:focus {

@@ -8,7 +8,6 @@ export default function LanguageToggle() {
         <button 
             onClick={toggleLanguage} 
             className={`${Styles.icon} ${language === Language.ENGLISH ? Styles.gb : Styles.no}`}
-            style={{backgroundColor: 'transparent'}}
         />
     )
 }

@@ -2,6 +2,7 @@ import ViewStyles from '../../styles/View.module.css'
 import ContactStyles from '../../styles/Contact.module.css'
 import { useText } from '../../utils/hooks'
 import { useRef } from 'react'
+import { NeonButton } from '../views/Buttons'
 
 const MESSAGE_TIMEOUT = 10_000 // ms
 
@@ -70,7 +71,7 @@ export default function ContactForm() {
                             required
                         />
                         <br />
-                        <button type='submit'>{contact.sendMessage}</button>
+                        <NeonButton type='submit'>{contact.sendMessage}</NeonButton>
                     </form>
                 </div>
             </div>
