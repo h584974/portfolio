@@ -9,15 +9,10 @@
 .form > * {
     margin-block: 1rem;
     font-family: var(--ft-formal);
-    font-size: 1rem;
-}
-
-.form > h1 {
-    font-size: 3rem;
 }
 
 .form > input {
-    width: 70%;
+    width: 100%;
 }
 
 .form > textarea {

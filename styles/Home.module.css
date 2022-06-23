@@ -2,7 +2,7 @@
     font-family: var(--ft-personal);
 }
 
-    .container :is(h1, h2, h3, h4, h5) {
+    .container :is(h1, h2, h3, h4, h5, h6) {
         font-family: var(--ft-title);
     }
 
@@ -10,23 +10,18 @@
     text-align: center;
 }
 
-    .front h1 {
-        font-family: var(--ft-signature);
-    }
-
-    .front h3 {
-        font-family: var(--ft-mono);
-        margin: auto;
-    }
-
 .name {
+    font-size: 2em;
+    font-family: var(--ft-signature);
     font-weight: 700;
-    text-shadow: 4px 4px 4px var(--shadow-dark);
+    text-shadow: .06em .06em .125em var(--shadow);
 }
 
 .description {
-    position: relative;
-    width: max-content;
+    font-family: var(--ft-mono) !important;
+    margin: auto !important;
+    position: relative !important;
+    width: max-content !important;
     --bg-after: black;
 }
 
@@ -61,7 +56,7 @@
 }
 
 .portrait {
-    border-radius: 50%;
+    border-radius: 100vmax;
 }
 
 @keyframes typewriter {
@@ -74,12 +69,4 @@
     to {
         background: transparent;
     }
-}
-
-@media (min-width: 1500px) {
-
-    .front {
-        font-size: 1.5rem;
-    }
-
 }

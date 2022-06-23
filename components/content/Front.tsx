@@ -23,13 +23,13 @@ export default function Front() {
     return (
         <div className={HomeStyles.front} ref={frontRef}>
             <h1 className={HomeStyles.name}>{front.name}</h1>
-            <h3 
+            <strong
                 className={HomeStyles.description}
                 ref={descRef}
                 style={{animationTimingFunction: `steps(${front.description.length})`}}
             >
                 {front.description}
-            </h3>
+            </strong>
         </div>
     )
 }

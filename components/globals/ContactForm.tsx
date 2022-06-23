@@ -48,7 +48,7 @@ export default function ContactForm() {
             <div className={ViewStyles.centered_text}>
                 <div className={ViewStyles.inline_left}>
                     <form className={ContactStyles.form} onSubmit={handleSubmit}>
-                        <h1>{contact.title}</h1>
+                        <h2>{contact.title}</h2>
                         <input
                             type='text'
                             name='name'

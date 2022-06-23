@@ -11,7 +11,7 @@
 }
 
 .content {
-    width: 150ch;
+    width: 120ch;
     padding: 1em;
 }
 
@@ -121,6 +121,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.centered_self_v {
+    margin-block: auto;
 }
 
 .centered_text {

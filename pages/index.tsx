@@ -8,24 +8,24 @@ import ViewStyles from '../styles/View.module.css'
 export default function Home() {
     return (
         <div id='home' className={HomeStyles.container}>
-            <div className={ViewStyles.section_full}>
+            <section className={ViewStyles.section_full}>
                 <div className={ViewStyles.content}>
                 <Front />
                 </div>
-            </div>
+            </section>
 
-            <div id='about' className={ViewStyles.section_full}>
+            <section id='about' className={ViewStyles.section_full}>
                 <div className={ViewStyles.content}>
                 <AboutMe />
                 <Skills />
                 </div>
-            </div >
+            </section>
 
-            <div id='projects' className={ViewStyles.section_full}>
+            <section id='projects' className={ViewStyles.section_full}>
                 <div className={ViewStyles.content}>
                 <Projects />
                 </div>
-            </div>
+            </section>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 :root {
-  --nav-height: 2.2rem;
+  --nav-height: 2.5rem;
   --view-height: calc(100vh - var(--nav-height));
   --max: max(100vh, 100vw);
   --border-r: 1rem;
@@ -15,7 +15,7 @@
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --ft-mono: 'Courier New', Courier, monospace;
 
-  --fs: 20px;
+  --fs: 16px;
 }
 
 .light {
@@ -160,24 +160,32 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--highlight);
+}
+
 a, button {
   transition: color var(--trs), box-shadow var(--trs);
 }
 
 button, input {
   border-radius: 100vmax;
-  padding: .5rem;
+}
+
+button, input, textarea {
+  padding: .5em;
+  box-shadow: 0 0 .125em var(--shadow);
+  outline: none;
 }
 
 button {
   border: none;
-  box-shadow: 0 0 2px var(--shadow-dark);
   background-color: var(--bg-inv);
   color: var(--color-inv);
 }
 
 button:hover {
-  box-shadow: 0 0 5px var(--shadow);
+  box-shadow: 0 0 .185em var(--shadow);
   color: var(--highlight-inv);
 }
 
@@ -185,22 +193,18 @@ button:hover, a:hover {
   cursor: pointer;
 }
 
-::placeholder {
-  text-align: left;
-  color: var(--color-ph);
+input, textarea {
+  border: .125em solid currentColor;
 }
 
 textarea {
   resize: none;
-  padding: .5rem;
   border-radius: var(--border-r);
-  border-width: 2px;
-  border-style: solid;
 }
 
-button, input, textarea {
-  box-shadow: 0 0 3px var(--shadow);
-  outline: none;
+::placeholder {
+  text-align: left;
+  color: var(--color-ph);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -211,25 +215,10 @@ button, input, textarea {
   background-color: var(--color-scroll-inv);
 }
 
-input {
-  border-color: currentColor;
-  border-style: solid;
-  border-width: 2px;
-}
-
-textarea {
-  border-color: currentColor;
-}
-
-a:hover {
-  color: var(--highlight);
-}
-
 @media (max-width: 768px) {
 
   :root {
    --fs: 13px;
-   --nav-height: 3rem;
   }
 
   div.mobile-grid {

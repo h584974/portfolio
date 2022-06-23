@@ -196,7 +196,7 @@ export default function SnakeGame() {
     }
 
     return (
-        <div className={`${ViewStyles.grid_6} ${SnakeStyles.container}`}>
+        <div className={`${ViewStyles.grid_6} ${SnakeStyles.container} mobile-grid`}>
             <div className={ViewStyles.col_span_3}>
                 <span className={SnakeStyles.score_banner}>
                     <p>{Text.snake.score}: {score}</p>

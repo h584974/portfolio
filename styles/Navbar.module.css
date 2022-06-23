@@ -5,6 +5,7 @@
     width: 100vw;
     height: var(--nav-height);
     top: 0;
+    box-shadow: 0 0 3px var(--shadow-inv);
     font-size: min(calc(var(--nav-height) / 2.2), 4vw);
     font-family: var(--ft-neutral);
     z-index: 1;

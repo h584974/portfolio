@@ -8,7 +8,7 @@ export default function Projects() {
         <>
         <div className={ViewStyles.section_full}>
             <div>
-                <h1>{projects.title}</h1>
+                <h2>{projects.title}</h2>
                 <div className={`${ViewStyles.grid_6} mobile-grid`}>
                     <div className={ViewStyles.col_span_3}>
                         <h3>{projects.project1.title}</h3>
