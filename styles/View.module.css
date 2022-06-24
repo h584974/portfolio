@@ -10,6 +10,11 @@
     align-items: center;
 }
 
+.full {
+    width: 100%;
+    min-height: var(--view-height);
+}
+
 .content {
     width: 120ch;
     padding: 1em;

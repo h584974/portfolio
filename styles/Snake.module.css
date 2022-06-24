@@ -34,4 +34,6 @@
 
 .leaderboard button {
     margin-left: 1rem;
+    background: linear-gradient(45deg, rgb(27, 219, 222), rgb(54, 172, 231));
+    color: white;
 }

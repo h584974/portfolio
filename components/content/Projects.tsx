@@ -6,7 +6,7 @@ export default function Projects() {
     const { projects } = useText()
     return (
         <>
-        <div className={ViewStyles.section_full}>
+        <div className={`${ViewStyles.full} ${ViewStyles.centered_v}`}>
             <div>
                 <h2>{projects.title}</h2>
                 <div className={`${ViewStyles.grid_6} mobile-grid`}>
@@ -27,7 +27,7 @@ export default function Projects() {
                 </div>
             </div>
         </div>
-        <div className={ViewStyles.section_full}>
+        <div className={`${ViewStyles.full} ${ViewStyles.centered_v}`}>
             <div className={`${ViewStyles.grid_6} mobile-grid`}>
                 <div className={ViewStyles.col_span_3}>
                     <div style={{width: '100%', aspectRatio: '16/9'}}>
