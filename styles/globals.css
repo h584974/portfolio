@@ -143,6 +143,10 @@ main {
   scroll-behavior: smooth;
 }
 
+section {
+  width: 100%;
+}
+
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
 }
