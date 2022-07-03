@@ -1,0 +1,3 @@
+[submodule "nextjs_modules"]
+	path = nextjs_modules
+	url = https://github.com/h584974/nextjs_modules
