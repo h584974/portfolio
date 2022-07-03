@@ -162,14 +162,11 @@ section {
 
 a {
   text-decoration: none;
+  transition: color var(--trs), box-shadow var(--trs);
 }
 
 a:hover {
   color: var(--highlight);
-}
-
-a, button {
-  transition: color var(--trs), box-shadow var(--trs);
 }
 
 button, input {
@@ -190,7 +187,6 @@ button {
 
 button:hover {
   box-shadow: 0 0 .185em var(--shadow);
-  color: var(--highlight-inv);
 }
 
 button:hover, a:hover {
@@ -198,7 +194,7 @@ button:hover, a:hover {
 }
 
 input, textarea {
-  border: .125em solid currentColor;
+  border: .1em solid currentColor;
 }
 
 textarea {
