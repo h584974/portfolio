@@ -5,7 +5,7 @@ import ViewStyles from '../../styles/View.module.css'
 import { useAppContext, useInterval, useText } from '../../utils/hooks'
 import { Direction, Food, Input, Point2D, Snake, Theme } from '../../utils/types'
 import { updateUsername } from '../../utils/user'
-import { RippleButton } from '../views/Buttons'
+import { RippleButton } from '../../nextjs-modules/index'
 
 // Constants
 const GRID_SIZE = 40
